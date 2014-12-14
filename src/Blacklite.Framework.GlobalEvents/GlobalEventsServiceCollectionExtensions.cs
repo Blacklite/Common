@@ -7,7 +7,7 @@ namespace Microsoft.Framework.DependencyInjection
 {
     public static class GlobalEventsServiceCollectionExtensions
     {
-        public static IServiceCollection AddMultitenancy(
+        public static IServiceCollection AddGlobalEvents(
             [NotNull] this IServiceCollection services,
             IConfiguration configuration = null)
         {

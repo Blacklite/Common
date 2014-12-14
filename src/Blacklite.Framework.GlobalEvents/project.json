@@ -6,7 +6,7 @@
         "Microsoft.Framework.DependencyInjection": "1.0.0-rc1-*",
         "Microsoft.Framework.ConfigurationModel": "1.0.0-rc1-*",
         "Microsoft.Framework.Runtime.Interfaces": "1.0.0-rc1-*",
-        "Blacklite.Framework.Interfaces": { "version": "", "type": "build" }
+        "Blacklite.Framework.Interfaces": { "version": "1.0.0-beta-*", "type": "build" }
     },
 
     "frameworks": {
