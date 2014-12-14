@@ -9,7 +9,7 @@ namespace Blacklite.Framework.GlobalEvents
 {
     public static class GlobalEventsServices
     {
-        public static IEnumerable<IServiceDescriptor> GetApplicationEvents(IConfiguration configuration = null)
+        public static IEnumerable<IServiceDescriptor> GetDefaultServices(IConfiguration configuration = null)
         {
             var describe = new ServiceDescriber(configuration);
 

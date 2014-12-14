@@ -2,9 +2,10 @@
 
 namespace Blacklite.Framework
 {
+    [AssemblyNeutral]
     public interface IEventOrchestrator
     {
-        void Broadcast(IEvent value);
+        void Broadcast([NotNull] IEvent value);
         IObservable<IEvent> Events { get; }
     }
 }

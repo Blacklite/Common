@@ -1,10 +1,11 @@
-﻿using Blacklite.Framework.GlobalEvents;
+﻿using Blacklite.Framework;
+using Blacklite.Framework.GlobalEvents;
 using Microsoft.Framework.ConfigurationModel;
 using System;
 
 namespace Microsoft.Framework.DependencyInjection
 {
-    public static class TenantOnlyServiceCollectionExtensions
+    public static class GlobalEventsServiceCollectionExtensions
     {
         public static IServiceCollection AddMultitenancy(
             [NotNull] this IServiceCollection services,
@@ -13,10 +14,6 @@ namespace Microsoft.Framework.DependencyInjection
             services.TryAdd(GlobalEventsServices.GetDefaultServices(configuration));
             return services;
         }
-
-    }
-        public class BuilderExtensions
-    {
 
     }
 }

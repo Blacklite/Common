@@ -2,6 +2,7 @@
 
 namespace Blacklite.Framework
 {
+    [AssemblyNeutral]
     public interface IEvent
     {
         string Type { get; }
