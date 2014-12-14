@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Framework.Runtime;
+using System;
 
 namespace Blacklite.Framework
 {
