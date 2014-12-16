@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace Blacklite.Framework.GlobalEvents
 {
-    public class GlobalEvent : IEvent
+    class GlobalEvent : IEvent
     {
         public string Type { get; set; }
 

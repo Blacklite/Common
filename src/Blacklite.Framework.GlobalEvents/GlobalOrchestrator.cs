@@ -4,7 +4,12 @@ using System.Reactive.Subjects;
 
 namespace Blacklite.Framework.GlobalEvents
 {
-    public class GlobalOrchestrator : IEventOrchestrator
+    public interface IGlobalOrchestrator : IEventOrchestrator
+    {
+
+    }
+
+    class GlobalOrchestrator : IGlobalOrchestrator
     {
         private readonly ISubject<IEvent> _subject;
 

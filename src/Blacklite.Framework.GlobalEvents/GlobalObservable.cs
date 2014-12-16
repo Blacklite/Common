@@ -2,9 +2,12 @@
 
 namespace Blacklite.Framework.GlobalEvents
 {
+    public interface IGlobalObservable : IEventObservable
+    {
 
+    }
 
-    public class GlobalObservable : IEventObservable
+    class GlobalObservable : IGlobalObservable
     {
         private readonly IObservable<IEvent> _observable;
         public GlobalObservable([NotNull] IEventOrchestrator orchestrator)
