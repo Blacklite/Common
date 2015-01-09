@@ -5,7 +5,7 @@ namespace Blacklite.Framework.TopographicalSort
 {
     public static class TopographicalSortExtensions
     {
-        public static IEnumerable<T> TopographicalSort<T>(this IEnumerable<T> source, Func<T, IEnumerable<T>> dependencies)
+        public static IEnumerable<T> TopographicalSort<T>([NotNull] this IEnumerable<T> source, [NotNull] Func<T, IEnumerable<T>> dependencies)
         {
             var sorted = new List<T>();
             var visited = new HashSet<T>();
