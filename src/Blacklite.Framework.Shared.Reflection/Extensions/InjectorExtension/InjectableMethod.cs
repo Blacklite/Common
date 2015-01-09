@@ -51,7 +51,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                     var type = instance?.GetType() ?? typeof(T);
                     var typeInfo = type.GetTypeInfo();
 
-                    var param = _injectableParameters.SingleOrDefault(_instanceParameter.Predicate(typeInfo));
+                    var param = _injectableParameters.SingleOrDefault(_instanceParameter.Predicate(type));
 
                     if (param != null)
                     {
