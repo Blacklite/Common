@@ -10,7 +10,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
         private readonly MethodInfo _methodInfo;
         private readonly IEnumerable<ParameterInfo> _parameterInfos;
         private InstanceParameter _instanceParameter;
-        private readonly IList<ConfiguredParameter> _injectedParameterInfos = new List<ConfiguredParameter>();
+        private readonly IList<ConfiguredParameter> _configuredParameters = new List<ConfiguredParameter>();
         private readonly IList<Type> _returnTypes;
 
         internal InjectableMethodBuilder(MethodInfo methodInfo)
@@ -24,7 +24,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
         {
             _methodInfo = builder._methodInfo;
             _parameterInfos = builder._parameterInfos;
-            _injectedParameterInfos = builder._injectedParameterInfos.ToList();
+            _configuredParameters = builder._configuredParameters.ToList();
             _returnTypes = builder._returnTypes.ToList();
             _instanceParameter = builder._instanceParameter;
         }
@@ -39,7 +39,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
             }
 
             if (param != null)
-                _injectedParameterInfos.Add(new ConfiguredParameter(param, optional));
+                _configuredParameters.Add(new ConfiguredParameter(param, optional));
 
             return new InjectableMethodBuilder(this);
         }
@@ -50,11 +50,11 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
             var param = _parameterInfos.SingleOrDefault(x => x.ParameterType.Equals(type));
             if (param == null && !optional)
             {
-                throw new MissingMemberException(string.Format("Could not find injectable property for predicate '{0}'", type.FullName));
+                throw new MissingMemberException(string.Format("Could not find injectable property for type '{0}'", type.FullName));
             }
 
             if (param != null)
-                _injectedParameterInfos.Add(new ConfiguredParameter(param, optional));
+                _configuredParameters.Add(new ConfiguredParameter(param, optional));
 
             return new InjectableMethodBuilder(this);
         }
@@ -64,10 +64,20 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
             // lack of optional means its required.
             var param = _parameterInfos.SingleOrDefault(x => x.ParameterType.Equals(type));
             if (param != null)
-                _injectedParameterInfos.Add(new ConfiguredParameter(param, optional));
+            {
+                _configuredParameters.Add(new ConfiguredParameter(param, optional));
+            }
             else
+            {
                 _instanceParameter = new InstanceParameter(type, predicate, optional);
+            }
 
+            return new InjectableMethodBuilder(this);
+        }
+
+        public InjectableMethodBuilder ConfigureInstanceParameter(Func<object, Func<ParameterInfo, bool>> predicate, bool optional = false)
+        {
+            _instanceParameter = new InstanceParameter(null, predicate, optional);
             return new InjectableMethodBuilder(this);
         }
 
@@ -95,10 +105,10 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
 
         private void ValidateInjectedParameters(int paramCount)
         {
-            if (_injectedParameterInfos.Count != paramCount)
-            {
-                throw new InvalidOperationException("The create method must have the exact same number of injected parameters as the ones declared.");
-            }
+            //if (_parameterInfos.Count() != paramCount)
+            //{
+            //    throw new InvalidOperationException("The create method must have the exact same number of injected parameters as the ones declared.");
+            //}
         }
     }
 }

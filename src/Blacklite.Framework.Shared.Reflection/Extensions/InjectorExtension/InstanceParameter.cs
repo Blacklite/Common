@@ -3,21 +3,21 @@ using System.Reflection;
 
 namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
 {
-    public class InstanceParameter : ConfiguredParameter
+    class InstanceParameter : ConfiguredParameter
     {
         internal InstanceParameter(ParameterInfo parameterInfo, bool optional)
             : base(parameterInfo, optional)
         {
         }
 
-        internal InstanceParameter(Type desiredType, Func<object, Func<ParameterInfo, bool>> predicate, bool optional = false)
+        internal InstanceParameter(Type desiredType, Func<Type, Func<ParameterInfo, bool>> predicate, bool optional = false)
             : base(null, optional)
         {
-            TypeInfo = desiredType.GetTypeInfo();
+            TypeInfo = desiredType?.GetTypeInfo();
             Predicate = predicate;
         }
 
         public TypeInfo TypeInfo { get; }
-        public Func<object, Func<ParameterInfo, bool>> Predicate { get; }
+        public Func<Type, Func<ParameterInfo, bool>> Predicate { get; }
     }
 }

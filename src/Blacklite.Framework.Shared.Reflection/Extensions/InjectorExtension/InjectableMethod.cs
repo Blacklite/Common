@@ -13,13 +13,13 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
         private InstanceParameter _instanceParameter;
         private IEnumerable<ParameterInfo> _injectableParameters;
         private IEnumerable<ConfiguredParameter> _configuredParameters;
+        private readonly TypeInfo _methodReturnTypeInfo;
         private int _numParams;
         private readonly IDictionary<TypeInfo, ConfiguredParameter> _resolvedConfiguredParameter;
 
         internal InjectableMethod(
             MethodInfo methodInfo,
             InstanceParameter instanceParameter,
-            IEnumerable<ParameterInfo> injectableParameters,
             IEnumerable<ConfiguredParameter> configuredParameters,
             IDictionary<TypeInfo, ConfiguredParameter> resolvedConfiguredParameter)
         {
@@ -29,28 +29,37 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
             _configuredParameters = configuredParameters;
             _numParams = methodInfo.GetParameters().Count();
             _resolvedConfiguredParameter = resolvedConfiguredParameter;
+            _methodReturnTypeInfo = _methodInfo.ReturnType.GetTypeInfo();
 
             if (_instanceParameter != null && _instanceParameter.ParameterInfo != null)
             {
+                _configuredParameters = configuredParameters.Union(new[] { _instanceParameter });
                 _instanceParameter = null;
-                _configuredParameters = _configuredParameters.Union(new[] { _instanceParameter });
             }
+            if (_instanceParameter != null && _instanceParameter.Predicate == null)
+                throw new Exception("Instance param requires a predicate if it is not well defined.");
 
-            _injectableParameters = injectableParameters.Except(_configuredParameters.Select(x => x.ParameterInfo));
+            _injectableParameters = methodInfo.GetParameters().Except(_configuredParameters.Select(x => x.ParameterInfo)).ToArray();
         }
 
-        private void UpdateInstanceParameter(object instance)
+        private void UpdateInstanceParameter<T>(T instance)
         {
             if (_instanceParameter != null && instance != null)
             {
                 if (_instanceParameter.Predicate != null)
                 {
-                    var param = _injectableParameters.SingleOrDefault(_instanceParameter.Predicate(instance));
+                    var type = instance?.GetType() ?? typeof(T);
+                    var typeInfo = type.GetTypeInfo();
+
+                    var param = _injectableParameters.SingleOrDefault(_instanceParameter.Predicate(typeInfo));
 
                     if (param != null)
                     {
                         _configuredParameters = _configuredParameters.Union(new[] { new InstanceParameter(param, param.IsOptional) });
                         _injectableParameters = _injectableParameters.Except(_configuredParameters.Select(x => x.ParameterInfo));
+
+                        if (_resolvedConfiguredParameter.ContainsKey(typeInfo))
+                            _resolvedConfiguredParameter.Remove(typeInfo);
                     }
 
                     if (param == null)
@@ -80,8 +89,8 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                     }
                     catch (Exception)
                     {
-                        throw new Exception(string.Format(
-                            "TODO: Unable to resolve required service for {0} method {1} {2}",
+                        throw new InvalidOperationException(string.Format(
+                            "Unable to resolve required service for {0} method {1} {2}",
                             _methodInfo.Name,
                             parameterInfo.Name,
                             parameterInfo.ParameterType.FullName));
@@ -92,15 +101,10 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
 
         private void SetConfiguredParameter<T>(object[] parameters, T value)
         {
+            UpdateInstanceParameter(value);
             var configuredParam = _resolvedConfiguredParameter.GetConfigureParameter(typeof(T), _configuredParameters);
             if (configuredParam != null)
             {
-                //if (!configuredParam.Optional)
-                //{
-                //    var isDefault = value?.Equals(default(T));
-                //    if (isDefault.HasValue && isDefault.Value || !isDefault.HasValue)
-                //        throw new MissingMemberException(string.Format("No value given for required param '{0}'", configuredParam.ParameterInfo.Name));
-                //}
                 parameters[configuredParam.ParameterInfo.Position] = value;
             }
         }
@@ -108,29 +112,20 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
         private static MethodInfo _emptyMethod = typeof(Enumerable).GetTypeInfo().DeclaredMethods.Single(x => x.Name == nameof(Enumerable.Empty));
         private TReturn GetDefaultReturnValue<TReturn>(TypeInfo typeInfo)
         {
-            Type enumType = null;
 
             // type is IEnumerable<T>;
             if (typeInfo.IsGenericType && typeInfo.GetGenericTypeDefinition() == typeof(IEnumerable<>))
-                enumType = typeInfo.GenericTypeArguments[0];
-
-            if (enumType == null)
-                // type implements/extends IEnumerable<T>;
-                enumType = typeInfo.ImplementedInterfaces
-                    .Where(t => t.GetTypeInfo().IsGenericType && t.GetGenericTypeDefinition() == typeof(IEnumerable<>))
-                    .Select(t => t.GenericTypeArguments[0])
-                    .FirstOrDefault();
-
-            if (enumType != null)
             {
-                return (TReturn)_emptyMethod.MakeGenericMethod(enumType).Invoke(null, null);
+                var enumType = typeInfo.GenericTypeArguments[0];
+                return (TReturn)_emptyMethod.MakeGenericMethod(enumType).Invoke(null, new object[] { });
             }
+
             return default(TReturn);
         }
 
-        private TReturn GetResult<TReturn>(object container, object[] parameters, TReturn returnDefault)
+        private TReturn GetResult<TReturn>(object container, object[] parameters, TReturn returnDefault, TypeInfo returnTypeInfo)
         {
-            if (_voidReturnType)
+            if (_voidReturnType || !_methodReturnTypeInfo.IsAssignableFrom(returnTypeInfo))
             {
                 _methodInfo.Invoke(container, parameters);
                 return returnDefault;
