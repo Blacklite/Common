@@ -72,7 +72,7 @@ namespace Steps.Tests
 
             var provider = new PhasedStepProvider<IPhasedStep, IEnumerable<IValidation>>(new PhasedStepCache<IPhasedStep, IEnumerable<IValidation>>(mockSteps));
 
-            var steps = provider.GetStepsForPhase(StepPhases.PreInit, new object(), It.IsAny<IStepContext>());
+            var steps = provider.GetStepsForPhase(StepPhases.PreInit,  It.IsAny<IStepContext>(), new object());
 
             //Assert.Equal(3, steps.Count());
 
@@ -89,7 +89,7 @@ namespace Steps.Tests
             Assert.DoesNotContain(stepSavePhases, underlyingSteps);
             Assert.Contains(stepAllPhases, underlyingSteps);
 
-            steps = provider.GetStepsForPhase(StepPhases.Init, new object(), It.IsAny<IStepContext>());
+            steps = provider.GetStepsForPhase(StepPhases.Init,  It.IsAny<IStepContext>(), new object());
 
             //Assert.Equal(3, steps.Count());
 
@@ -106,7 +106,7 @@ namespace Steps.Tests
             Assert.DoesNotContain(stepSavePhases, underlyingSteps);
             Assert.Contains(stepAllPhases, underlyingSteps);
 
-            steps = provider.GetStepsForPhase(StepPhases.PostInit, new object(), It.IsAny<IStepContext>());
+            steps = provider.GetStepsForPhase(StepPhases.PostInit,  It.IsAny<IStepContext>(), new object());
 
             //Assert.Equal(3, steps.Count());
 
@@ -123,7 +123,7 @@ namespace Steps.Tests
             Assert.DoesNotContain(stepSavePhases, underlyingSteps);
             Assert.Contains(stepAllPhases, underlyingSteps);
 
-            steps = provider.GetStepsForPhase(StepPhases.PreSave, new object(), It.IsAny<IStepContext>());
+            steps = provider.GetStepsForPhase(StepPhases.PreSave,  It.IsAny<IStepContext>(), new object());
 
             //Assert.Equal(3, steps.Count());
 
@@ -140,7 +140,7 @@ namespace Steps.Tests
             Assert.Contains(stepSavePhases, underlyingSteps);
             Assert.Contains(stepAllPhases, underlyingSteps);
 
-            steps = provider.GetStepsForPhase(StepPhases.Validate, new object(), It.IsAny<IStepContext>());
+            steps = provider.GetStepsForPhase(StepPhases.Validate,  It.IsAny<IStepContext>(), new object());
 
             //Assert.Equal(3, steps.Count());
 
@@ -157,7 +157,7 @@ namespace Steps.Tests
             Assert.Contains(stepSavePhases, underlyingSteps);
             Assert.Contains(stepAllPhases, underlyingSteps);
 
-            steps = provider.GetStepsForPhase(StepPhases.Save, new object(), It.IsAny<IStepContext>());
+            steps = provider.GetStepsForPhase(StepPhases.Save,  It.IsAny<IStepContext>(), new object());
 
             //Assert.Equal(3, steps.Count());
 
@@ -174,7 +174,7 @@ namespace Steps.Tests
             Assert.Contains(stepSavePhases, underlyingSteps);
             Assert.Contains(stepAllPhases, underlyingSteps);
 
-            steps = provider.GetStepsForPhase(StepPhases.PostSave, new object(), It.IsAny<IStepContext>());
+            steps = provider.GetStepsForPhase(StepPhases.PostSave,  It.IsAny<IStepContext>(), new object());
 
             //Assert.Equal(3, steps.Count());
 
@@ -221,43 +221,43 @@ namespace Steps.Tests
 
             var provider = new PhasedStepProvider<IPhasedStep, IEnumerable<IValidation>>(new PhasedStepCache<IPhasedStep, IEnumerable<IValidation>>(mockSteps));
 
-            var steps = provider.GetStepsForPhase(StepPhases.PreInit, new object(), It.IsAny<IStepContext>()).Cast<StepDescriptor<IEnumerable<IValidation>>>().Select(x => x.Step).ToArray();
+            var steps = provider.GetStepsForPhase(StepPhases.PreInit,  It.IsAny<IStepContext>(), new object()).Cast<StepDescriptor<IEnumerable<IValidation>>>().Select(x => x.Step).ToArray();
 
             Assert.Same(steps[0], stepInitPhases);
             Assert.Same(steps[1], stepAllPhases);
             Assert.Same(steps[2], stepPreInit);
 
-            steps = provider.GetStepsForPhase(StepPhases.Init, new object(), It.IsAny<IStepContext>()).Cast<StepDescriptor<IEnumerable<IValidation>>>().Select(x => x.Step).ToArray();
+            steps = provider.GetStepsForPhase(StepPhases.Init,  It.IsAny<IStepContext>(), new object()).Cast<StepDescriptor<IEnumerable<IValidation>>>().Select(x => x.Step).ToArray();
 
             Assert.Same(steps[0], stepInit);
             Assert.Same(steps[1], stepInitPhases);
             Assert.Same(steps[2], stepAllPhases);
 
-            steps = provider.GetStepsForPhase(StepPhases.PostInit, new object(), It.IsAny<IStepContext>()).Cast<StepDescriptor<IEnumerable<IValidation>>>().Select(x => x.Step).ToArray();
+            steps = provider.GetStepsForPhase(StepPhases.PostInit,  It.IsAny<IStepContext>(), new object()).Cast<StepDescriptor<IEnumerable<IValidation>>>().Select(x => x.Step).ToArray();
 
             Assert.Same(steps[0], stepInitPhases);
             Assert.Same(steps[1], stepPostInit);
             Assert.Same(steps[2], stepAllPhases);
 
-            steps = provider.GetStepsForPhase(StepPhases.PreSave, new object(), It.IsAny<IStepContext>()).Cast<StepDescriptor<IEnumerable<IValidation>>>().Select(x => x.Step).ToArray();
+            steps = provider.GetStepsForPhase(StepPhases.PreSave,  It.IsAny<IStepContext>(), new object()).Cast<StepDescriptor<IEnumerable<IValidation>>>().Select(x => x.Step).ToArray();
 
             Assert.Same(steps[0], stepSavePhases);
             Assert.Same(steps[1], stepPreSave);
             Assert.Same(steps[2], stepAllPhases);
 
-            steps = provider.GetStepsForPhase(StepPhases.Validate, new object(), It.IsAny<IStepContext>()).Cast<StepDescriptor<IEnumerable<IValidation>>>().Select(x => x.Step).ToArray();
+            steps = provider.GetStepsForPhase(StepPhases.Validate,  It.IsAny<IStepContext>(), new object()).Cast<StepDescriptor<IEnumerable<IValidation>>>().Select(x => x.Step).ToArray();
 
             Assert.Same(steps[0], stepSavePhases);
             Assert.Same(steps[1], stepValidate);
             Assert.Same(steps[2], stepAllPhases);
 
-            steps = provider.GetStepsForPhase(StepPhases.Save, new object(), It.IsAny<IStepContext>()).Cast<StepDescriptor<IEnumerable<IValidation>>>().Select(x => x.Step).ToArray();
+            steps = provider.GetStepsForPhase(StepPhases.Save,  It.IsAny<IStepContext>(), new object()).Cast<StepDescriptor<IEnumerable<IValidation>>>().Select(x => x.Step).ToArray();
 
             Assert.Same(steps[0], stepSavePhases);
             Assert.Same(steps[1], stepSave);
             Assert.Same(steps[2], stepAllPhases);
 
-            steps = provider.GetStepsForPhase(StepPhases.PostSave, new object(), It.IsAny<IStepContext>()).Cast<StepDescriptor<IEnumerable<IValidation>>>().Select(x => x.Step).ToArray();
+            steps = provider.GetStepsForPhase(StepPhases.PostSave,  It.IsAny<IStepContext>(), new object()).Cast<StepDescriptor<IEnumerable<IValidation>>>().Select(x => x.Step).ToArray();
 
             Assert.Same(steps[0], stepPostSave);
             Assert.Same(steps[1], stepSavePhases);
@@ -330,7 +330,7 @@ namespace Steps.Tests
 
             var provider = new PhasedStepProvider<IPhasedStep, IEnumerable<IValidation>>(new PhasedStepCache<IPhasedStep, IEnumerable<IValidation>>(mockSteps));
 
-            var steps = provider.GetStepsForPhase(StepPhases.Init, context, processContext);
+            var steps = provider.GetStepsForPhase(StepPhases.Init, processContext, context);
 
             foreach (var step in steps)
             {
