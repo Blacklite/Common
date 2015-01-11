@@ -365,35 +365,6 @@ namespace Steps.Tests
         }
 
         [Fact]
-        public void CanExecuteIsNotInjectable()
-        {
-            var context = new object();
-            var processContextMock = new Mock<IStepContext>();
-            var processContext = processContextMock.Object;
-
-            var serviceProviderMock = new Mock<IServiceProvider>();
-            var serviceProvider = serviceProviderMock.Object;
-
-            var injectableMock = new Mock<IInjectable>();
-            var injectable = injectableMock.Object;
-
-            serviceProviderMock.Setup(x => x.GetService(typeof(IInjectable))).Returns(injectableMock.Object);
-            processContextMock.SetupGet(x => x.ProcessServices).Returns(serviceProviderMock.Object);
-
-            var customStepCanExecuteInvalid = new Mock<CustomPhasedStepCanExecuteInvalid>();
-            customStepCanExecuteInvalid.SetupGet(x => x.Phases).Returns(StepPhases.Init);
-            customStepCanExecuteInvalid.Setup(x => x.CanRun(It.IsAny<Type>())).Returns(true);
-            customStepCanExecuteInvalid.Setup(x => x.CanExecute(context, processContext, new Mock<IInjectable>().Object)).Returns(true);
-
-            var mockSteps = new IPhasedStep[]
-            {
-                customStepCanExecuteInvalid.Object,
-            };
-
-            Assert.Throws(typeof(NotSupportedException), () => new PhasedStepProvider<IPhasedStep, IEnumerable<IValidation>>(new PhasedStepCache<IPhasedStep, IEnumerable<IValidation>>(mockSteps)));
-        }
-
-        [Fact]
         public void DetectsCyclicDependencies()
         {
             IPhasedStep[] mockSteps;

@@ -127,7 +127,7 @@ namespace Blacklite.Framework.Steps
                 Overrides = GetStepOverrides(steps, overrideSteps, step),
                 _before = GetRunsBefore(steps, overrideSteps, step),
                 _after = GetRunsAfter(steps, overrideSteps, step),
-                CanExecuteFunc = GetCanExecuteAction(step),
+                CanExecuteFunc = step.CanExecute,
                 CanRunFunc = step.CanRun,
                 ExecuteFunc = GetExecuteAction(step)
             };
@@ -142,18 +142,6 @@ namespace Blacklite.Framework.Steps
                 .ConfigureInstanceParameter(instance => parameterInfo => parameterInfo.ParameterType.GetTypeInfo().IsAssignableFrom(instance.GetType().GetTypeInfo()))
                 .ReturnType(typeof(void), typeof(TReturn))
                 .CreateFunc<object, IStepContext, TReturn>(step);
-        }
-
-        private static Func<object, IStepContext, bool> GetCanExecuteAction(IStep step)
-        {
-            var typeInfo = step.GetType().GetTypeInfo();
-
-            return typeInfo.CreateInjectableMethod(nameof(ICanExecuteStep.CanExecute))
-                .ConfigureParameter(parameterInfo => typeof(IStepContext).GetTypeInfo().IsAssignableFrom(parameterInfo.ParameterType.GetTypeInfo()), optional: true)
-                .ConfigureInstanceParameter(instance => parameterInfo => parameterInfo.ParameterType.GetTypeInfo().IsAssignableFrom(instance.GetType().GetTypeInfo()))
-                .ReturnType(typeof(bool))
-                .OnlyConfiguredParameters()
-                .CreateFunc<object, IStepContext, bool>(step);
         }
 
         private static IEnumerable<StepDescriptor<TReturn>> GetStepOverrides<TStep>(IEnumerable<TStep> steps, ICollection<StepDescriptor<TReturn>> overrideSteps, IStep step)
