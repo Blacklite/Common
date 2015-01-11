@@ -12,10 +12,10 @@ namespace Blacklite.Framework.Steps
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="phase"></param>
-        /// <param name="instance"></param>
         /// <param name="context"></param>
+        /// <param name="instance"></param>
         /// <returns></returns>
-        IEnumerable<IStepDescriptor<TReturn>> GetStepsForPhase<T>([NotNull]IStepPhase phase, [NotNull] T instance, [NotNull]IStepContext context) where T : class;
+        IEnumerable<IStepDescriptor<TReturn>> GetStepsForPhase<T>([NotNull]IStepPhase phase, [NotNull]IStepContext context, [NotNull] T instance) where T : class;
     }
 
     public class PhasedStepProvider<TStep, TReturn> : IPhasedStepProvider<TStep, TReturn>
@@ -28,7 +28,7 @@ namespace Blacklite.Framework.Steps
             _stepCache = stepCache;
         }
 
-        public IEnumerable<IStepDescriptor<TReturn>> GetStepsForPhase<T>(IStepPhase phase, [NotNull]T instance, IStepContext context)
+        public IEnumerable<IStepDescriptor<TReturn>> GetStepsForPhase<T>(IStepPhase phase, IStepContext context, [NotNull]T instance)
             where T : class
         {
             IStepContainer<TReturn> value;
