@@ -106,90 +106,70 @@ namespace Steps.Tests.Fixtures
         }
     }
 
-    public abstract class PhasedStepVoidExecute : PhasedStep<object>
+    public abstract class PhasedStepVoidExecute : IPhasedStep
     {
-        public override IEnumerable<IStepPhase> Phases => StepPhases.Init;
+        public virtual bool CanExecute(IStepContext context, object instance) => true;
+
+        public virtual bool CanRun(Type type) => true;
+
+        public virtual IEnumerable<IStepPhase> Phases => StepPhases.Init;
 
         public abstract void Execute(object instance);
     }
 
-    public abstract class PhasedStepVoidExecuteContext : PhasedStep<object>
+    public abstract class PhasedStepVoidExecuteContext : IPhasedStep
     {
-        public override IEnumerable<IStepPhase> Phases => StepPhases.Init;
+        public virtual bool CanExecute(IStepContext context, object instance) => true;
+
+        public virtual bool CanRun(Type type) => true;
+
+        public virtual IEnumerable<IStepPhase> Phases => StepPhases.Init;
 
         public abstract void Execute(object instance, IStepContext context);
     }
 
-    public abstract class PhasedStepVoidExecuteInjectable : PhasedStep<object>
+    public abstract class PhasedStepVoidExecuteInjectable : IPhasedStep
     {
-        public override IEnumerable<IStepPhase> Phases => StepPhases.Init;
+        public virtual bool CanExecute(IStepContext context, object instance) => true;
+
+        public virtual bool CanRun(Type type) => true;
+
+        public virtual IEnumerable<IStepPhase> Phases => StepPhases.Init;
 
         public abstract void Execute(object instance, IStepContext context, IInjectable injectable);
     }
 
-    public abstract class PhasedStepValidationExecute : PhasedStep<object>
+    public abstract class PhasedStepValidationExecute : IPhasedStep
     {
-        public override IEnumerable<IStepPhase> Phases => StepPhases.Init;
+        public virtual bool CanExecute(IStepContext context, object instance) => true;
+
+        public virtual bool CanRun(Type type) => true;
+
+        public virtual IEnumerable<IStepPhase> Phases => StepPhases.Init;
 
         public abstract IEnumerable<IValidation> Execute(object instance);
     }
 
-    public abstract class PhasedStepValidationExecuteContext : PhasedStep<object>
+    public abstract class PhasedStepValidationExecuteContext : IPhasedStep
     {
-        public override IEnumerable<IStepPhase> Phases => StepPhases.Init;
+        public virtual bool CanExecute(IStepContext context, object instance) => true;
+
+        public virtual bool CanRun(Type type) => true;
+
+        public virtual IEnumerable<IStepPhase> Phases => StepPhases.Init;
 
         public abstract IEnumerable<IValidation> Execute(object instance, IStepContext context);
     }
 
-    public abstract class PhasedStepValidationExecuteInjectable : PhasedStep<object>
+    public abstract class PhasedStepValidationExecuteInjectable : IPhasedStep
     {
-        public override IEnumerable<IStepPhase> Phases => StepPhases.Init;
+        public virtual bool CanExecute(IStepContext context, object instance) => true;
+
+        public virtual bool CanRun(Type type) => true;
+
+        public virtual IEnumerable<IStepPhase> Phases => StepPhases.Init;
 
         public abstract IEnumerable<IValidation> Execute(object instance, IStepContext context, IInjectable injectable);
-    }
-
-    public abstract class CustomPhasedStepCanExecute : IPhasedStep
-    {
-        public virtual IEnumerable<IStepPhase> Phases { get; } = StepPhases.Init;
-
-        public abstract bool CanExecute(object instance);
-
-        public abstract bool CanRun(Type type);
-
-        public abstract IEnumerable<IValidation> Execute(object instance);
-    }
-
-    public abstract class CustomPhasedStepCanExecuteContext : IPhasedStep
-    {
-        public virtual IEnumerable<IStepPhase> Phases { get; } = StepPhases.Init;
-
-        public abstract bool CanExecute(IStepContext context, object instance);
-
-        public abstract bool CanRun(Type type);
-
-        public abstract IEnumerable<IValidation> Execute(object instance);
-    }
-
-    public abstract class CustomPhasedStepCanExecuteContext2 : IPhasedStep
-    {
-        public virtual IEnumerable<IStepPhase> Phases { get; } = StepPhases.Init;
-
-        public abstract bool CanExecute(object instance, IStepContext context);
-
-        public abstract bool CanRun(Type type);
-
-        public abstract IEnumerable<IValidation> Execute(object instance);
-    }
-
-    public abstract class CustomPhasedStepCanExecuteInvalid : IPhasedStep
-    {
-        public virtual IEnumerable<IStepPhase> Phases { get; } = StepPhases.Init;
-
-        public abstract bool CanExecute(object instance, IStepContext context, IInjectable injectable);
-
-        public abstract bool CanRun(Type type);
-
-        public abstract IEnumerable<IValidation> Execute(object instance);
     }
 
     [BeforeStep(typeof(PhasedCyclicBefore1StepB))]

@@ -38,7 +38,7 @@ namespace Blacklite.Framework.Steps
                     // If they "CanExecute" then this step, by it's nature should not execute.
                     // because the "override" will also be in the list of possible steps for a given type.
                     // and we should not run the same step more than once.
-                    .Where(step => step.CanExecute(instance, context));
+                    .Where(step => step.CanExecute(context, instance));
 
             return Enumerable.Empty<IStepDescriptor<TReturn>>();
         }

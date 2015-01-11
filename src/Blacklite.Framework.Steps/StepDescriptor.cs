@@ -14,8 +14,8 @@ namespace Blacklite.Framework.Steps
     public interface IStepDescriptor<TReturn>
     {
         bool CanRun(Type type);
-        bool CanExecute(object instance, IStepContext context);
-        TReturn Execute(IServiceProvider serviceProvider, object instance, IStepContext context);
+        bool CanExecute(IStepContext context, object instance);
+        TReturn Execute(IServiceProvider serviceProvider, IStepContext context, object instance);
     }
 
     /// <summary>
@@ -70,16 +70,6 @@ namespace Blacklite.Framework.Steps
         public IEnumerable<IStepPhase> Phases { get; private set; }
 
         /// <summary>
-        ///  The underling Can Execute method
-        /// </summary>
-        public Func<object, IStepContext, bool> CanExecuteFunc { get; private set; }
-
-        /// <summary>
-        /// The underlying Can Run method
-        /// </summary>
-        public Func<Type, bool> CanRunFunc { get; private set; }
-
-        /// <summary>
         /// If this process step has been overriden, it will be shown here.
         ///
         /// The other process step generally runs if it has been override, unless it's Can Execute method says it can't.
@@ -127,8 +117,6 @@ namespace Blacklite.Framework.Steps
                 Overrides = GetStepOverrides(steps, overrideSteps, step),
                 _before = GetRunsBefore(steps, overrideSteps, step),
                 _after = GetRunsAfter(steps, overrideSteps, step),
-                CanExecuteFunc = step.CanExecute,
-                CanRunFunc = step.CanRun,
                 ExecuteFunc = GetExecuteAction(step)
             };
         }
@@ -232,15 +220,15 @@ namespace Blacklite.Framework.Steps
 
         public bool CanRun(Type type)
         {
-            return CanRunFunc(type) && (!Overrides.Any() || !Overrides.Any(z => z.CanRunFunc(type)));
+            return Step.CanRun(type) && (!Overrides.Any() || !Overrides.Any(z => z.CanRun(type)));
         }
 
-        public bool CanExecute(object instance, IStepContext context)
+        public bool CanExecute(IStepContext context, object instance)
         {
-            return CanExecuteFunc(instance, context) && (!Overrides.Any() || !Overrides.Any(z => z.CanExecute(instance, context)));
+            return Step.CanExecute(context, instance) && (!Overrides.Any() || !Overrides.Any(z => z.CanExecute(context, instance)));
         }
 
-        public TReturn Execute(IServiceProvider serviceProvider, object instance, IStepContext context)
+        public TReturn Execute(IServiceProvider serviceProvider, IStepContext context, object instance)
         {
             return ExecuteFunc(serviceProvider, instance, context);
         }

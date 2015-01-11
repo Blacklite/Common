@@ -106,84 +106,58 @@ namespace Steps.Tests.Fixtures
         }
     }
 
-    public abstract class StepVoidExecute : Step<object>
+    public abstract class StepVoidExecute : IStep
     {
+        public virtual bool CanExecute(IStepContext context, object instance) => true;
 
+        public virtual bool CanRun(Type type) => true;
 
         public abstract void Execute(object instance);
     }
 
-    public abstract class StepVoidExecuteContext : Step<object>
+    public abstract class StepVoidExecuteContext : IStep
     {
+        public virtual bool CanExecute(IStepContext context, object instance) => true;
 
+        public virtual bool CanRun(Type type) => true;
 
         public abstract void Execute(object instance, IStepContext context);
     }
 
-    public abstract class StepVoidExecuteInjectable : Step<object>
+    public abstract class StepVoidExecuteInjectable : IStep
     {
+        public virtual bool CanExecute(IStepContext context, object instance) => true;
 
+        public virtual bool CanRun(Type type) => true;
 
         public abstract void Execute(object instance, IStepContext context, IInjectable injectable);
     }
 
-    public abstract class StepValidationExecute : Step<object>
+    public abstract class StepValidationExecute : IStep
     {
+        public virtual bool CanExecute(IStepContext context, object instance) => true;
 
+        public virtual bool CanRun(Type type) => true;
 
         public abstract IEnumerable<IValidation> Execute(object instance);
     }
 
-    public abstract class StepValidationExecuteContext : Step<object>
+    public abstract class StepValidationExecuteContext : IStep
     {
+        public virtual bool CanExecute(IStepContext context, object instance) => true;
 
+        public virtual bool CanRun(Type type) => true;
 
         public abstract IEnumerable<IValidation> Execute(object instance, IStepContext context);
     }
 
-    public abstract class StepValidationExecuteInjectable : Step<object>
+    public abstract class StepValidationExecuteInjectable : IStep
     {
+        public virtual bool CanExecute(IStepContext context, object instance) => true;
 
+        public virtual bool CanRun(Type type) => true;
 
         public abstract IEnumerable<IValidation> Execute(object instance, IStepContext context, IInjectable injectable);
-    }
-
-    public abstract class CustomStepCanExecute : IStep
-    {
-
-        public abstract bool CanExecute(object instance);
-
-        public abstract bool CanRun(Type type);
-
-        public abstract IEnumerable<IValidation> Execute(object instance);
-    }
-
-    public abstract class CustomStepCanExecuteContext : IStep
-    {
-        public abstract bool CanExecute(IStepContext context, object instance);
-
-        public abstract bool CanRun(Type type);
-
-        public abstract IEnumerable<IValidation> Execute(object instance);
-    }
-
-    public abstract class CustomStepCanExecuteContext2 : IStep
-    {
-
-        public abstract bool CanExecute(object instance, IStepContext context);
-
-        public abstract bool CanRun(Type type);
-
-        public abstract IEnumerable<IValidation> Execute(object instance);
-    }
-
-    public abstract class CustomStepCanExecuteInvalid : IStep
-    {
-        public abstract bool CanExecute(object instance, IStepContext context, IInjectable injectable);
-
-        public abstract bool CanRun(Type type);
-
-        public abstract IEnumerable<IValidation> Execute(object instance);
     }
 
     [BeforeStep(typeof(CyclicBefore1StepB))]

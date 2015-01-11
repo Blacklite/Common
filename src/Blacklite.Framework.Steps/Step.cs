@@ -21,7 +21,7 @@ namespace Blacklite.Framework.Steps
     public interface IStep
     {
         bool CanRun([NotNull] Type type);
-        bool CanExecute(object instance, [NotNull] IStepContext context);
+        bool CanExecute([NotNull] IStepContext context, object instance);
     }
 
     /// <summary>
@@ -31,10 +31,10 @@ namespace Blacklite.Framework.Steps
     public abstract class Step<T> : IStep
         where T : class
     {
-        public virtual bool CanExecute(T instance, IStepContext context) => true;
+        public virtual bool CanExecute(IStepContext context, T instance) => true;
 
         public virtual bool CanRun(Type type) => typeof(T).GetTypeInfo().IsAssignableFrom(type.GetTypeInfo());
 
-        bool IStep.CanExecute(object instance, IStepContext context) => CanExecute((T)instance, context);
+        bool IStep.CanExecute(IStepContext context, object instance) => CanExecute(context, (T)instance);
     }
 }

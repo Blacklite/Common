@@ -21,7 +21,7 @@ namespace Blacklite.Framework.Steps
         /// <param name="instance"></param>
         /// <param name="context"></param>
         /// <returns></returns>
-        IEnumerable<IStepDescriptor<TReturn>> GetSteps<T>([NotNull] T instance, [NotNull]IStepContext context) where T : class;
+        IEnumerable<IStepDescriptor<TReturn>> GetSteps<T>([NotNull]IStepContext context, [NotNull] T instance) where T : class;
     }
 
     public class StepProvider<TStep, TReturn> : IStepProvider<TStep, TReturn>
@@ -34,10 +34,10 @@ namespace Blacklite.Framework.Steps
             _stepCache = stepCache;
         }
 
-        public IEnumerable<IStepDescriptor<TReturn>> GetSteps<T>([NotNull]T instance, IStepContext context)
+        public IEnumerable<IStepDescriptor<TReturn>> GetSteps<T>([NotNull] IStepContext context, T instance)
             where T : class
         {
-            return _stepCache.GetStepsForContext(instance).Where(x => x.CanExecute(instance, context));
+            return _stepCache.GetStepsForContext(instance).Where(x => x.CanExecute(context, instance));
         }
     }
 }
