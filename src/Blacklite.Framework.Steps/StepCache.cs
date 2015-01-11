@@ -12,7 +12,7 @@ namespace Blacklite.Framework.Steps
     {
     }
 
-    class StepCache<TStep, TReturn> : IStepCache<TStep, TReturn>
+    public class StepCache<TStep, TReturn> : IStepCache<TStep, TReturn>
         where TStep : IStep
     {
         private readonly IStepContainer<TReturn> _cache;
