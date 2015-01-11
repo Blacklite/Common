@@ -6,7 +6,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
 {
     public partial class InjectableMethodBuilder
     {
-        public Action<IServiceProvider> CreateAction(object container)
+        public Action<IServiceProvider> CreateAction([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(0);
@@ -17,7 +17,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateAction(container);
         }
 
-        public Action<IServiceProvider, T1> CreateAction<T1>(object container)
+        public Action<IServiceProvider, T1> CreateAction<T1>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(1);
@@ -29,7 +29,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateAction<T1>(container);
         }
 
-        public Action<IServiceProvider, T1, T2> CreateAction<T1, T2>(object container)
+        public Action<IServiceProvider, T1, T2> CreateAction<T1, T2>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(2);
@@ -42,7 +42,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateAction<T1, T2>(container);
         }
 
-        public Action<IServiceProvider, T1, T2, T3> CreateAction<T1, T2, T3>(object container)
+        public Action<IServiceProvider, T1, T2, T3> CreateAction<T1, T2, T3>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(3);
@@ -56,7 +56,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateAction<T1, T2, T3>(container);
         }
 
-        public Action<IServiceProvider, T1, T2, T3, T4> CreateAction<T1, T2, T3, T4>(object container)
+        public Action<IServiceProvider, T1, T2, T3, T4> CreateAction<T1, T2, T3, T4>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(4);
@@ -71,7 +71,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateAction<T1, T2, T3, T4>(container);
         }
 
-        public Action<IServiceProvider, T1, T2, T3, T4, T5> CreateAction<T1, T2, T3, T4, T5>(object container)
+        public Action<IServiceProvider, T1, T2, T3, T4, T5> CreateAction<T1, T2, T3, T4, T5>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(5);
@@ -87,7 +87,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateAction<T1, T2, T3, T4, T5>(container);
         }
 
-        public Action<IServiceProvider, T1, T2, T3, T4, T5, T6> CreateAction<T1, T2, T3, T4, T5, T6>(object container)
+        public Action<IServiceProvider, T1, T2, T3, T4, T5, T6> CreateAction<T1, T2, T3, T4, T5, T6>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(6);
@@ -104,7 +104,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateAction<T1, T2, T3, T4, T5, T6>(container);
         }
 
-        public Action<IServiceProvider, T1, T2, T3, T4, T5, T6, T7> CreateAction<T1, T2, T3, T4, T5, T6, T7>(object container)
+        public Action<IServiceProvider, T1, T2, T3, T4, T5, T6, T7> CreateAction<T1, T2, T3, T4, T5, T6, T7>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(7);
@@ -122,7 +122,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateAction<T1, T2, T3, T4, T5, T6, T7>(container);
         }
 
-        public Action<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8> CreateAction<T1, T2, T3, T4, T5, T6, T7, T8>(object container)
+        public Action<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8> CreateAction<T1, T2, T3, T4, T5, T6, T7, T8>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(8);
@@ -141,7 +141,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateAction<T1, T2, T3, T4, T5, T6, T7, T8>(container);
         }
 
-        public Action<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, T9> CreateAction<T1, T2, T3, T4, T5, T6, T7, T8, T9>(object container)
+        public Action<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, T9> CreateAction<T1, T2, T3, T4, T5, T6, T7, T8, T9>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(9);
@@ -161,7 +161,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateAction<T1, T2, T3, T4, T5, T6, T7, T8, T9>(container);
         }
 
-        public Action<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> CreateAction<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(object container)
+        public Action<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> CreateAction<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(10);
@@ -182,7 +182,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateAction<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(container);
         }
 
-        public Action<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> CreateAction<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(object container)
+        public Action<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> CreateAction<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(11);
@@ -204,7 +204,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateAction<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(container);
         }
 
-        public Action<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12> CreateAction<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(object container)
+        public Action<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12> CreateAction<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(12);
@@ -227,7 +227,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateAction<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(container);
         }
 
-        public Action<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13> CreateAction<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(object container)
+        public Action<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13> CreateAction<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(13);
@@ -251,7 +251,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateAction<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(container);
         }
 
-        public Action<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14> CreateAction<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(object container)
+        public Action<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14> CreateAction<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(14);
@@ -276,7 +276,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateAction<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(container);
         }
 
-        public Action<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15> CreateAction<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(object container)
+        public Action<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15> CreateAction<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(15);

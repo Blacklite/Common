@@ -18,10 +18,10 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
         private readonly IDictionary<TypeInfo, ConfiguredParameter> _resolvedConfiguredParameter;
 
         internal InjectableMethod(
-            MethodInfo methodInfo,
-            InstanceParameter instanceParameter,
-            IEnumerable<ConfiguredParameter> configuredParameters,
-            IDictionary<TypeInfo, ConfiguredParameter> resolvedConfiguredParameter)
+            [NotNull] MethodInfo methodInfo,
+            [NotNull] InstanceParameter instanceParameter,
+            [NotNull] IEnumerable<ConfiguredParameter> configuredParameters,
+            [NotNull] IDictionary<TypeInfo, ConfiguredParameter> resolvedConfiguredParameter)
         {
             _voidReturnType = methodInfo.ReturnType == typeof(void);
             _methodInfo = methodInfo;

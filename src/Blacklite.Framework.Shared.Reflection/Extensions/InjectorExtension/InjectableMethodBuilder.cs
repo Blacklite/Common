@@ -29,7 +29,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
             _instanceParameter = builder._instanceParameter;
         }
 
-        public InjectableMethodBuilder ConfigureParameter(Func<ParameterInfo, bool> predicate, bool optional = false)
+        public InjectableMethodBuilder ConfigureParameter([NotNull] Func<ParameterInfo, bool> predicate, bool optional = false)
         {
             // lack of optional means its required.
             var param = _parameterInfos.SingleOrDefault(predicate);
@@ -44,7 +44,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
             return new InjectableMethodBuilder(this);
         }
 
-        public InjectableMethodBuilder ConfigureParameter(Type type, bool optional = false)
+        public InjectableMethodBuilder ConfigureParameter([NotNull] Type type, bool optional = false)
         {
             // lack of optional means its required.
             var param = _parameterInfos.SingleOrDefault(x => x.ParameterType.Equals(type));
@@ -59,7 +59,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
             return new InjectableMethodBuilder(this);
         }
 
-        public InjectableMethodBuilder ConfigureInstanceParameter(Type type, Func<object, Func<ParameterInfo, bool>> predicate, bool optional = false)
+        public InjectableMethodBuilder ConfigureInstanceParameter([NotNull] Type type, [NotNull] Func<object, Func<ParameterInfo, bool>> predicate, bool optional = false)
         {
             // lack of optional means its required.
             var param = _parameterInfos.SingleOrDefault(x => x.ParameterType.Equals(type));
@@ -75,19 +75,19 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
             return new InjectableMethodBuilder(this);
         }
 
-        public InjectableMethodBuilder ConfigureInstanceParameter(Func<object, Func<ParameterInfo, bool>> predicate, bool optional = false)
+        public InjectableMethodBuilder ConfigureInstanceParameter([NotNull] Func<object, Func<ParameterInfo, bool>> predicate, bool optional = false)
         {
             _instanceParameter = new InstanceParameter(null, predicate, optional);
             return new InjectableMethodBuilder(this);
         }
 
-        public InjectableMethodBuilder ConfigureInstanceParameter(Type type, bool optional = false)
+        public InjectableMethodBuilder ConfigureInstanceParameter([NotNull] Type type, bool optional = false)
         {
             ConfigureParameter(type, optional);
             return new InjectableMethodBuilder(this);
         }
 
-        public InjectableMethodBuilder ReturnType(params Type[] returnTypes)
+        public InjectableMethodBuilder ReturnType([NotNull] params Type[] returnTypes)
         {
             foreach (var item in returnTypes)
                 _returnTypes.Add(item);

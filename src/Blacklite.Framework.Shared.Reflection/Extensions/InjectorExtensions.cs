@@ -9,7 +9,7 @@ namespace Blacklite.Framework.Shared.Reflection
 {
     public static class InjectorExtensions
     {
-        public static InjectableMethodBuilder CreateInjectableMethod(this TypeInfo typeInfo, string methodName, Func<MethodInfo, bool> predicate = null)
+        public static InjectableMethodBuilder CreateInjectableMethod([NotNull]  this TypeInfo typeInfo, [NotNull] string methodName, Func<MethodInfo, bool> predicate = null)
         {
             // Warn that there is no execute method.
             var methodInfos = typeInfo.DeclaredMethods
@@ -26,7 +26,7 @@ namespace Blacklite.Framework.Shared.Reflection
             return methodInfo.CreateInjectableMethod();
         }
 
-        public static InjectableMethodBuilder CreateInjectableMethod(this MethodInfo methodInfo)
+        public static InjectableMethodBuilder CreateInjectableMethod([NotNull]this MethodInfo methodInfo)
         {
             return new InjectableMethodBuilder(methodInfo);
         }

@@ -6,7 +6,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
 {
     public partial class InjectableMethodBuilder
     {
-        public Func<IServiceProvider, TReturn> CreateFunc<TReturn>(object container)
+        public Func<IServiceProvider, TReturn> CreateFunc<TReturn>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(1);
@@ -17,7 +17,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateFunc<TReturn>(container);
         }
 
-        public Func<IServiceProvider, T1, TReturn> CreateFunc<T1, TReturn>(object container)
+        public Func<IServiceProvider, T1, TReturn> CreateFunc<T1, TReturn>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(1);
@@ -29,7 +29,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateFunc<T1, TReturn>(container);
         }
 
-        public Func<IServiceProvider, T1, T2, TReturn> CreateFunc<T1, T2, TReturn>(object container)
+        public Func<IServiceProvider, T1, T2, TReturn> CreateFunc<T1, T2, TReturn>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(2);
@@ -42,7 +42,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateFunc<T1, T2, TReturn>(container);
         }
 
-        public Func<IServiceProvider, T1, T2, T3, TReturn> CreateFunc<T1, T2, T3, TReturn>(object container)
+        public Func<IServiceProvider, T1, T2, T3, TReturn> CreateFunc<T1, T2, T3, TReturn>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(3);
@@ -56,7 +56,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateFunc<T1, T2, T3, TReturn>(container);
         }
 
-        public Func<IServiceProvider, T1, T2, T3, T4, TReturn> CreateFunc<T1, T2, T3, T4, TReturn>(object container)
+        public Func<IServiceProvider, T1, T2, T3, T4, TReturn> CreateFunc<T1, T2, T3, T4, TReturn>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(4);
@@ -71,7 +71,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateFunc<T1, T2, T3, T4, TReturn>(container);
         }
 
-        public Func<IServiceProvider, T1, T2, T3, T4, T5, TReturn> CreateFunc<T1, T2, T3, T4, T5, TReturn>(object container)
+        public Func<IServiceProvider, T1, T2, T3, T4, T5, TReturn> CreateFunc<T1, T2, T3, T4, T5, TReturn>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(5);
@@ -87,7 +87,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateFunc<T1, T2, T3, T4, T5, TReturn>(container);
         }
 
-        public Func<IServiceProvider, T1, T2, T3, T4, T5, T6, TReturn> CreateFunc<T1, T2, T3, T4, T5, T6, TReturn>(object container)
+        public Func<IServiceProvider, T1, T2, T3, T4, T5, T6, TReturn> CreateFunc<T1, T2, T3, T4, T5, T6, TReturn>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(6);
@@ -104,7 +104,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateFunc<T1, T2, T3, T4, T5, T6, TReturn>(container);
         }
 
-        public Func<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, TReturn> CreateFunc<T1, T2, T3, T4, T5, T6, T7, TReturn>(object container)
+        public Func<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, TReturn> CreateFunc<T1, T2, T3, T4, T5, T6, T7, TReturn>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(7);
@@ -122,7 +122,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateFunc<T1, T2, T3, T4, T5, T6, T7, TReturn>(container);
         }
 
-        public Func<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, TReturn> CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, TReturn>(object container)
+        public Func<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, TReturn> CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, TReturn>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(8);
@@ -141,7 +141,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, TReturn>(container);
         }
 
-        public Func<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, T9, TReturn> CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, T9, TReturn>(object container)
+        public Func<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, T9, TReturn> CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, T9, TReturn>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(9);
@@ -161,7 +161,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, T9, TReturn>(container);
         }
 
-        public Func<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, TReturn> CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, TReturn>(object container)
+        public Func<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, TReturn> CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, TReturn>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(10);
@@ -182,7 +182,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, TReturn>(container);
         }
 
-        public Func<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, TReturn> CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, TReturn>(object container)
+        public Func<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, TReturn> CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, TReturn>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(11);
@@ -204,7 +204,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, TReturn>(container);
         }
 
-        public Func<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, TReturn> CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, TReturn>(object container)
+        public Func<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, TReturn> CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, TReturn>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(12);
@@ -227,7 +227,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, TReturn>(container);
         }
 
-        public Func<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, TReturn> CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, TReturn>(object container)
+        public Func<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, TReturn> CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, TReturn>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(13);
@@ -251,7 +251,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, TReturn>(container);
         }
 
-        public Func<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, TReturn> CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, TReturn>(object container)
+        public Func<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, TReturn> CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, TReturn>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(14);
@@ -276,7 +276,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 .CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, TReturn>(container);
         }
 
-        public Func<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, TReturn> CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, TReturn>(object container)
+        public Func<IServiceProvider, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, TReturn> CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, TReturn>([NotNull] object container)
         {
             ValidateReturnType();
             ValidateInjectedParameters(15);
