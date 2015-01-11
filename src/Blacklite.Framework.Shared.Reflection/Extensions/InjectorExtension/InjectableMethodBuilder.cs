@@ -7,11 +7,11 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
 {
     public partial class InjectableMethodBuilder
     {
-        private readonly MethodInfo _methodInfo;
-        private readonly IEnumerable<ParameterInfo> _parameterInfos;
-        private InstanceParameter _instanceParameter;
-        private readonly IList<ConfiguredParameter> _configuredParameters = new List<ConfiguredParameter>();
-        private readonly IList<Type> _returnTypes;
+        internal readonly MethodInfo _methodInfo;
+        internal readonly IEnumerable<ParameterInfo> _parameterInfos;
+        internal InstanceParameter _instanceParameter;
+        internal readonly IList<ConfiguredParameter> _configuredParameters = new List<ConfiguredParameter>();
+        internal readonly IList<Type> _returnTypes;
 
         internal InjectableMethodBuilder(MethodInfo methodInfo)
         {
@@ -95,7 +95,12 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
             return new InjectableMethodBuilder(this);
         }
 
-        private void ValidateReturnType()
+        public ConfiguredMethodBuilder OnlyConfiguredParameters()
+        {
+            return new ConfiguredMethodBuilder(this);
+        }
+
+        internal void ValidateReturnType()
         {
             if (!_returnTypes.Any(z => z == _methodInfo.ReturnType))
             {
@@ -103,7 +108,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
             }
         }
 
-        private void ValidateInjectedParameters(int paramCount)
+        internal void ValidateInjectedParameters(int paramCount)
         {
             //if (_parameterInfos.Count() != paramCount)
             //{

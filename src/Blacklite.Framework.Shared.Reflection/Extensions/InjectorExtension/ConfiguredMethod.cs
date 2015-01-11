@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
 {
-    partial class InjectableMethod
+    partial class ConfiguredMethod
     {
         private readonly bool _voidReturnType;
         private readonly MethodInfo _methodInfo;
@@ -17,7 +17,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
         private int _numParams;
         private readonly IDictionary<TypeInfo, ConfiguredParameter> _resolvedConfiguredParameter;
 
-        internal InjectableMethod(
+        internal ConfiguredMethod(
             MethodInfo methodInfo,
             InstanceParameter instanceParameter,
             IEnumerable<ConfiguredParameter> configuredParameters,

@@ -148,37 +148,12 @@ namespace Blacklite.Framework.Steps
         {
             var typeInfo = step.GetType().GetTypeInfo();
 
-            var methodInfo = typeInfo.DeclaredMethods.SingleOrDefault(x => x.Name == nameof(ICanExecuteStep.CanExecute) && x.ReturnType == typeof(bool));
-            if (methodInfo == null)
-                // If the step doesn't specify, then assume it always runs.
-                return (context, instance) => true;
-
-            var parameterInfos = methodInfo.GetParameters();
-
-            ParameterInfo instanceParameter = parameterInfos.SingleOrDefault(parameterInfo => parameterInfo.ParameterType == typeof(object));
-            ParameterInfo contextParameter = parameterInfos.SingleOrDefault(parameterInfo => typeof(IStepContext).GetTypeInfo().IsAssignableFrom(parameterInfo.ParameterType.GetTypeInfo()));
-
-            // Warn that this method can't be injected into.
-            if (parameterInfos.Count() > 2 || (contextParameter == null && parameterInfos.Count() > 1))
-                throw new NotSupportedException(string.Format("The method '{0}' is not injectable, and only supports the context parameter with an optional IStepContext parameter.", nameof(ICanExecuteStep.CanExecute)));
-
-            // Return our own execute method, to cache the method info in the closure.
-            return (instance, context) =>
-            {
-                // We're allowing them to stongly type the context param.
-                // So we don't "know" for sure what the context param is of this step until we run once.
-                if (instanceParameter == null)
-                {
-                    instanceParameter = parameterInfos.Single(parameterInfo => parameterInfo.ParameterType.GetTypeInfo().IsAssignableFrom(instance.GetType().GetTypeInfo()));
-                }
-
-                var parameters = new object[parameterInfos.Length];
-                parameters[instanceParameter.Position] = instance;
-                if (contextParameter != null)
-                    parameters[contextParameter.Position] = context;
-
-                return (bool)methodInfo.Invoke(step, parameters);
-            };
+            return typeInfo.CreateInjectableMethod(nameof(ICanExecuteStep.CanExecute))
+                .ConfigureParameter(parameterInfo => typeof(IStepContext).GetTypeInfo().IsAssignableFrom(parameterInfo.ParameterType.GetTypeInfo()), optional: true)
+                .ConfigureInstanceParameter(instance => parameterInfo => parameterInfo.ParameterType.GetTypeInfo().IsAssignableFrom(instance.GetType().GetTypeInfo()))
+                .ReturnType(typeof(bool))
+                .OnlyConfiguredParameters()
+                .CreateFunc<object, IStepContext, bool>(step);
         }
 
         private static IEnumerable<StepDescriptor<TReturn>> GetStepOverrides<TStep>(IEnumerable<TStep> steps, ICollection<StepDescriptor<TReturn>> overrideSteps, IStep step)
