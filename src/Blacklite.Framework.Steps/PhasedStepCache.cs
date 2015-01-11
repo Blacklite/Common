@@ -11,7 +11,7 @@ namespace Blacklite.Framework.Steps
     {
     }
 
-    class PhasedStepCache<TStep, TReturn> : IPhasedStepCache<TStep, TReturn>
+    public class PhasedStepCache<TStep, TReturn> : IPhasedStepCache<TStep, TReturn>
         where TStep : IStep
     {
         private readonly IReadOnlyDictionary<IStepPhase, IStepContainer<TReturn>> _cache;
