@@ -13,7 +13,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
             ConfiguredParameter configuredParam = null;
             if (typeInfo != null && !resolvedConfiguredParameter.TryGetValue(typeInfo, out configuredParam))
             {
-                configuredParam = configuredParameters.SingleOrDefault(x => x.ParameterInfo.ParameterType.GetTypeInfo().IsAssignableFrom(typeInfo));
+                configuredParam = configuredParameters.SingleOrDefault(x => type != typeof(object) && x.ParameterInfo.ParameterType != typeof(object) && x.ParameterInfo.ParameterType.GetTypeInfo().IsAssignableFrom(typeInfo) || typeInfo == x.ParameterInfo.ParameterType.GetTypeInfo());
                 resolvedConfiguredParameter.Add(typeInfo, configuredParam);
             }
 

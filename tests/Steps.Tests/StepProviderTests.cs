@@ -174,6 +174,87 @@ namespace Steps.Tests
             validationExecuteInjectableMock.Verify(x => x.Execute(context, processContext, injectable));
         }
 
+        public interface IDerviedStepContext : IStepContext
+        {
+
+        }
+
+        [Fact]
+        public void StepsExecutePropertyWithADerivedStepContext()
+        {
+
+            var context = new object();
+            var processContextMock = new Mock<IDerviedStepContext>();
+            var processContext = processContextMock.Object;
+
+            var serviceProviderMock = new Mock<IServiceProvider>();
+            var serviceProvider = serviceProviderMock.Object;
+
+            var injectableMock = new Mock<IInjectable>();
+            var injectable = injectableMock.Object;
+
+            serviceProviderMock.Setup(x => x.GetService(typeof(IInjectable))).Returns(injectableMock.Object);
+            processContextMock.SetupGet(x => x.ProcessServices).Returns(serviceProviderMock.Object);
+
+            var voidExecuteMock = new Mock<StepVoidExecute>();
+            var voidExecuteContextMock = new Mock<StepVoidExecuteContext>();
+            var voidExecuteInjectableMock = new Mock<StepVoidExecuteInjectable>();
+            voidExecuteMock.Setup(x => x.CanRun(It.IsNotNull<Type>())).Returns(true);
+            voidExecuteMock.Setup(x => x.CanExecute(It.IsNotNull<IDerviedStepContext>(), It.IsNotNull<object>())).Returns(true);
+            voidExecuteMock.Setup(x => x.Execute(context));
+
+            voidExecuteContextMock.Setup(x => x.CanRun(It.IsNotNull<Type>())).Returns(true);
+            voidExecuteContextMock.Setup(x => x.CanExecute(It.IsNotNull<IDerviedStepContext>(), It.IsNotNull<object>())).Returns(true);
+            voidExecuteContextMock.Setup(x => x.Execute(context, processContext));
+
+            voidExecuteInjectableMock.Setup(x => x.CanRun(It.IsNotNull<Type>())).Returns(true);
+            voidExecuteInjectableMock.Setup(x => x.CanExecute(It.IsNotNull<IDerviedStepContext>(), It.IsNotNull<object>())).Returns(true);
+            voidExecuteInjectableMock.Setup(x => x.Execute(context, processContext, injectable));
+
+
+            var validationExecuteMock = new Mock<StepValidationExecute>();
+            var validationExecuteContextMock = new Mock<StepValidationExecuteContext>();
+            var validationExecuteInjectableMock = new Mock<StepValidationExecuteInjectable>();
+            validationExecuteMock.Setup(x => x.CanRun(It.IsNotNull<Type>())).Returns(true);
+            validationExecuteMock.Setup(x => x.CanExecute(It.IsNotNull<IDerviedStepContext>(), It.IsNotNull<object>())).Returns(true);
+            validationExecuteMock.Setup(x => x.Execute(context));
+
+            validationExecuteContextMock.Setup(x => x.CanRun(It.IsNotNull<Type>())).Returns(true);
+            validationExecuteContextMock.Setup(x => x.CanExecute(It.IsNotNull<IDerviedStepContext>(), It.IsNotNull<object>())).Returns(true);
+            validationExecuteContextMock.Setup(x => x.Execute(context, processContext));
+
+            validationExecuteInjectableMock.Setup(x => x.CanRun(It.IsNotNull<Type>())).Returns(true);
+            validationExecuteInjectableMock.Setup(x => x.CanExecute(It.IsNotNull<IDerviedStepContext>(), It.IsNotNull<object>())).Returns(true);
+            validationExecuteInjectableMock.Setup(x => x.Execute(context, processContext, injectable));
+
+            var mockSteps = new IStep[]
+            {
+                voidExecuteMock.Object,
+                voidExecuteContextMock.Object,
+                voidExecuteInjectableMock.Object,
+                validationExecuteMock.Object,
+                validationExecuteContextMock.Object,
+                validationExecuteInjectableMock.Object
+            };
+
+            var provider = new StepProvider<IStep, IEnumerable<IValidation>>(new StepCache<IStep, IEnumerable<IValidation>>(mockSteps));
+
+            var steps = provider.GetSteps(processContext, context);
+
+            foreach (var step in steps)
+            {
+                step.Execute(serviceProvider, processContext, context);
+            }
+
+            voidExecuteMock.Verify(x => x.Execute(context));
+            voidExecuteContextMock.Verify(x => x.Execute(context, processContext));
+            voidExecuteInjectableMock.Verify(x => x.Execute(context, processContext, injectable));
+
+            validationExecuteMock.Verify(x => x.Execute(context));
+            validationExecuteContextMock.Verify(x => x.Execute(context, processContext));
+            validationExecuteInjectableMock.Verify(x => x.Execute(context, processContext, injectable));
+        }
+
         [Fact]
         public void DetectsCyclicDependencies()
         {

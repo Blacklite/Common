@@ -102,7 +102,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
         private void SetConfiguredParameter<T>(object[] parameters, T value)
         {
             UpdateInstanceParameter(value);
-            var configuredParam = _resolvedConfiguredParameter.GetConfigureParameter(typeof(T), _configuredParameters);
+            var configuredParam = _resolvedConfiguredParameter.GetConfigureParameter(value?.GetType() ?? typeof(T), _configuredParameters);
             if (configuredParam != null)
             {
                 parameters[configuredParam.ParameterInfo.Position] = value;

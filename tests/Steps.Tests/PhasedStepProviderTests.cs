@@ -347,6 +347,94 @@ namespace Steps.Tests
         }
 
 
+        public interface IDerviedStepContext : IStepContext
+        {
+
+        }
+
+        [Fact]
+        public void StepsExecutePropertyWithADerivedStepContext()
+        {
+
+            var context = new object();
+            var processContextMock = new Mock<IDerviedStepContext>();
+            var processContext = processContextMock.Object;
+
+            var serviceProviderMock = new Mock<IServiceProvider>();
+            var serviceProvider = serviceProviderMock.Object;
+
+            var injectableMock = new Mock<IInjectable>();
+            var injectable = injectableMock.Object;
+
+            serviceProviderMock.Setup(x => x.GetService(typeof(IInjectable))).Returns(injectableMock.Object);
+            processContextMock.SetupGet(x => x.ProcessServices).Returns(serviceProviderMock.Object);
+
+            var voidExecuteMock = new Mock<PhasedStepVoidExecute>();
+            var voidExecuteContextMock = new Mock<PhasedStepVoidExecuteContext>();
+            var voidExecuteInjectableMock = new Mock<PhasedStepVoidExecuteInjectable>();
+            voidExecuteMock.Setup(x => x.Execute(context));
+            voidExecuteMock.SetupGet(x => x.Phases).Returns(StepPhases.Init);
+            voidExecuteMock.Setup(x => x.CanRun(It.IsAny<Type>())).Returns(true);
+            voidExecuteMock.Setup(x => x.CanExecute(processContext, context)).Returns(true);
+
+            voidExecuteContextMock.Setup(x => x.Execute(context, processContext));
+            voidExecuteContextMock.SetupGet(x => x.Phases).Returns(StepPhases.Init);
+            voidExecuteContextMock.Setup(x => x.CanRun(It.IsAny<Type>())).Returns(true);
+            voidExecuteContextMock.Setup(x => x.CanExecute(processContext, context)).Returns(true);
+
+            voidExecuteInjectableMock.Setup(x => x.Execute(context, processContext, injectable));
+            voidExecuteInjectableMock.SetupGet(x => x.Phases).Returns(StepPhases.Init);
+            voidExecuteInjectableMock.Setup(x => x.CanRun(It.IsAny<Type>())).Returns(true);
+            voidExecuteInjectableMock.Setup(x => x.CanExecute(processContext, context)).Returns(true);
+
+
+            var validationExecuteMock = new Mock<PhasedStepValidationExecute>();
+            var validationExecuteContextMock = new Mock<PhasedStepValidationExecuteContext>();
+            var validationExecuteInjectableMock = new Mock<PhasedStepValidationExecuteInjectable>();
+            validationExecuteMock.Setup(x => x.Execute(context));
+            validationExecuteMock.SetupGet(x => x.Phases).Returns(StepPhases.Init);
+            validationExecuteMock.Setup(x => x.CanRun(It.IsAny<Type>())).Returns(true);
+            validationExecuteMock.Setup(x => x.CanExecute(It.IsAny<IStepContext>(), It.IsAny<object>())).Returns(true);
+
+            validationExecuteContextMock.Setup(x => x.Execute(context, processContext));
+            validationExecuteContextMock.SetupGet(x => x.Phases).Returns(StepPhases.Init);
+            validationExecuteContextMock.Setup(x => x.CanRun(It.IsAny<Type>())).Returns(true);
+            validationExecuteContextMock.Setup(x => x.CanExecute(It.IsAny<IStepContext>(), It.IsAny<object>())).Returns(true);
+
+            validationExecuteInjectableMock.Setup(x => x.Execute(context, processContext, injectable));
+            validationExecuteInjectableMock.SetupGet(x => x.Phases).Returns(StepPhases.Init);
+            validationExecuteInjectableMock.Setup(x => x.CanRun(It.IsAny<Type>())).Returns(true);
+            validationExecuteInjectableMock.Setup(x => x.CanExecute(It.IsAny<IStepContext>(), It.IsAny<object>())).Returns(true);
+
+            var mockSteps = new IPhasedStep[]
+            {
+                voidExecuteMock.Object,
+                voidExecuteContextMock.Object,
+                voidExecuteInjectableMock.Object,
+                validationExecuteMock.Object,
+                validationExecuteContextMock.Object,
+                validationExecuteInjectableMock.Object
+            };
+
+            var provider = new PhasedStepProvider<IPhasedStep, IEnumerable<IValidation>>(new PhasedStepCache<IPhasedStep, IEnumerable<IValidation>>(mockSteps));
+
+            var steps = provider.GetStepsForPhase(StepPhases.Init, processContext, context);
+
+            foreach (var step in steps)
+            {
+                step.Execute(serviceProvider, processContext, context);
+            }
+
+            voidExecuteMock.Verify(x => x.Execute(context));
+            voidExecuteContextMock.Verify(x => x.Execute(context, processContext));
+            voidExecuteInjectableMock.Verify(x => x.Execute(context, processContext, injectable));
+
+            validationExecuteMock.Verify(x => x.Execute(context));
+            validationExecuteContextMock.Verify(x => x.Execute(context, processContext));
+            validationExecuteInjectableMock.Verify(x => x.Execute(context, processContext, injectable));
+        }
+
+
         [Fact]
         public void DetectsCyclicDependencies()
         {

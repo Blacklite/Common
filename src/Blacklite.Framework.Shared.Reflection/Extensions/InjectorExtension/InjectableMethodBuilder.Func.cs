@@ -23,7 +23,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
             ValidateInjectedParameters(1);
 
             var resolvedConfiguredParameter = new Dictionary<TypeInfo, ConfiguredParameter>();
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
 
             return new InjectableMethod(_methodInfo, _instanceParameter, _configuredParameters, resolvedConfiguredParameter)
                 .CreateFunc<T1, TReturn>(container);
@@ -35,8 +35,8 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
             ValidateInjectedParameters(2);
 
             var resolvedConfiguredParameter = new Dictionary<TypeInfo, ConfiguredParameter>();
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T2), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T2), _configuredParameters);
 
             return new InjectableMethod(_methodInfo, _instanceParameter, _configuredParameters, resolvedConfiguredParameter)
                 .CreateFunc<T1, T2, TReturn>(container);
@@ -48,9 +48,9 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
             ValidateInjectedParameters(3);
 
             var resolvedConfiguredParameter = new Dictionary<TypeInfo, ConfiguredParameter>();
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T2), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T3), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T2), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T3), _configuredParameters);
 
             return new InjectableMethod(_methodInfo, _instanceParameter, _configuredParameters, resolvedConfiguredParameter)
                 .CreateFunc<T1, T2, T3, TReturn>(container);
@@ -62,10 +62,10 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
             ValidateInjectedParameters(4);
 
             var resolvedConfiguredParameter = new Dictionary<TypeInfo, ConfiguredParameter>();
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T2), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T3), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T4), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T2), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T3), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T4), _configuredParameters);
 
             return new InjectableMethod(_methodInfo, _instanceParameter, _configuredParameters, resolvedConfiguredParameter)
                 .CreateFunc<T1, T2, T3, T4, TReturn>(container);
@@ -77,11 +77,11 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
             ValidateInjectedParameters(5);
 
             var resolvedConfiguredParameter = new Dictionary<TypeInfo, ConfiguredParameter>();
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T2), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T3), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T4), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T5), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T2), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T3), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T4), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T5), _configuredParameters);
 
             return new InjectableMethod(_methodInfo, _instanceParameter, _configuredParameters, resolvedConfiguredParameter)
                 .CreateFunc<T1, T2, T3, T4, T5, TReturn>(container);
@@ -93,12 +93,12 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
             ValidateInjectedParameters(6);
 
             var resolvedConfiguredParameter = new Dictionary<TypeInfo, ConfiguredParameter>();
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T2), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T3), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T4), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T5), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T6), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T2), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T3), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T4), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T5), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T6), _configuredParameters);
 
             return new InjectableMethod(_methodInfo, _instanceParameter, _configuredParameters, resolvedConfiguredParameter)
                 .CreateFunc<T1, T2, T3, T4, T5, T6, TReturn>(container);
@@ -110,13 +110,13 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
             ValidateInjectedParameters(7);
 
             var resolvedConfiguredParameter = new Dictionary<TypeInfo, ConfiguredParameter>();
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T2), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T3), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T4), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T5), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T6), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T7), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T2), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T3), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T4), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T5), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T6), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T7), _configuredParameters);
 
             return new InjectableMethod(_methodInfo, _instanceParameter, _configuredParameters, resolvedConfiguredParameter)
                 .CreateFunc<T1, T2, T3, T4, T5, T6, T7, TReturn>(container);
@@ -128,14 +128,14 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
             ValidateInjectedParameters(8);
 
             var resolvedConfiguredParameter = new Dictionary<TypeInfo, ConfiguredParameter>();
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T2), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T3), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T4), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T5), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T6), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T7), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T8), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T2), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T3), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T4), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T5), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T6), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T7), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T8), _configuredParameters);
 
             return new InjectableMethod(_methodInfo, _instanceParameter, _configuredParameters, resolvedConfiguredParameter)
                 .CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, TReturn>(container);
@@ -147,15 +147,15 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
             ValidateInjectedParameters(9);
 
             var resolvedConfiguredParameter = new Dictionary<TypeInfo, ConfiguredParameter>();
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T2), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T3), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T4), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T5), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T6), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T7), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T8), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T9), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T2), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T3), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T4), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T5), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T6), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T7), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T8), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T9), _configuredParameters);
 
             return new InjectableMethod(_methodInfo, _instanceParameter, _configuredParameters, resolvedConfiguredParameter)
                 .CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, T9, TReturn>(container);
@@ -167,16 +167,16 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
             ValidateInjectedParameters(10);
 
             var resolvedConfiguredParameter = new Dictionary<TypeInfo, ConfiguredParameter>();
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T2), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T3), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T4), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T5), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T6), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T7), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T8), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T9), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T10), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T2), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T3), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T4), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T5), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T6), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T7), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T8), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T9), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T10), _configuredParameters);
 
             return new InjectableMethod(_methodInfo, _instanceParameter, _configuredParameters, resolvedConfiguredParameter)
                 .CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, TReturn>(container);
@@ -188,17 +188,17 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
             ValidateInjectedParameters(11);
 
             var resolvedConfiguredParameter = new Dictionary<TypeInfo, ConfiguredParameter>();
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T2), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T3), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T4), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T5), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T6), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T7), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T8), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T9), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T10), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T11), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T2), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T3), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T4), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T5), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T6), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T7), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T8), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T9), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T10), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T11), _configuredParameters);
 
             return new InjectableMethod(_methodInfo, _instanceParameter, _configuredParameters, resolvedConfiguredParameter)
                 .CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, TReturn>(container);
@@ -210,18 +210,18 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
             ValidateInjectedParameters(12);
 
             var resolvedConfiguredParameter = new Dictionary<TypeInfo, ConfiguredParameter>();
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T2), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T3), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T4), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T5), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T6), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T7), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T8), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T9), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T10), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T11), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T12), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T2), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T3), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T4), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T5), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T6), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T7), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T8), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T9), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T10), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T11), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T12), _configuredParameters);
 
             return new InjectableMethod(_methodInfo, _instanceParameter, _configuredParameters, resolvedConfiguredParameter)
                 .CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, TReturn>(container);
@@ -233,19 +233,19 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
             ValidateInjectedParameters(13);
 
             var resolvedConfiguredParameter = new Dictionary<TypeInfo, ConfiguredParameter>();
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T2), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T3), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T4), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T5), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T6), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T7), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T8), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T9), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T10), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T11), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T12), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T13), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T2), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T3), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T4), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T5), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T6), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T7), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T8), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T9), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T10), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T11), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T12), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T13), _configuredParameters);
 
             return new InjectableMethod(_methodInfo, _instanceParameter, _configuredParameters, resolvedConfiguredParameter)
                 .CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, TReturn>(container);
@@ -257,20 +257,20 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
             ValidateInjectedParameters(14);
 
             var resolvedConfiguredParameter = new Dictionary<TypeInfo, ConfiguredParameter>();
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T2), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T3), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T4), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T5), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T6), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T7), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T8), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T9), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T10), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T11), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T12), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T13), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T14), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T2), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T3), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T4), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T5), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T6), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T7), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T8), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T9), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T10), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T11), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T12), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T13), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T14), _configuredParameters);
 
             return new InjectableMethod(_methodInfo, _instanceParameter, _configuredParameters, resolvedConfiguredParameter)
                 .CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, TReturn>(container);
@@ -282,21 +282,21 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
             ValidateInjectedParameters(15);
 
             var resolvedConfiguredParameter = new Dictionary<TypeInfo, ConfiguredParameter>();
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T2), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T3), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T4), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T5), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T6), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T7), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T8), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T9), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T10), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T11), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T12), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T13), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T14), _configuredParameters);
-            resolvedConfiguredParameter.GetConfigureParameter(typeof(T15), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T1), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T2), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T3), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T4), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T5), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T6), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T7), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T8), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T9), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T10), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T11), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T12), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T13), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T14), _configuredParameters);
+            //resolvedConfiguredParameter.GetConfigureParameter(typeof(T15), _configuredParameters);
 
             return new InjectableMethod(_methodInfo, _instanceParameter, _configuredParameters, resolvedConfiguredParameter)
                 .CreateFunc<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, TReturn>(container);
