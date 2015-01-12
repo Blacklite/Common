@@ -28,3 +28,7 @@ CALL packages\KoreBuild\build\kvm install default -runtime CoreCLR -x86
 :run
 CALL packages\KoreBuild\build\kvm use default -runtime CLR -x86
 packages\Sake\tools\Sake.exe -I packages\KoreBuild\build -f makefile.shade %*
+
+mkdir artifacts\symbols
+copy artifacts\build\*.symbols.nupkg artifacts\symbols
+del artifacts\build\*.symbols.nupkg
