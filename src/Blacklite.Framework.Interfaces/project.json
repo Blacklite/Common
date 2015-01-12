@@ -10,7 +10,7 @@
             }
         },
         "aspnet50": {
-            "dependencies": {
+            "dependencies": {   
             }
         },
         "aspnetcore50": {
