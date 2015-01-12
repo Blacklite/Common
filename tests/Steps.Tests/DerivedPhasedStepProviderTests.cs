@@ -36,7 +36,7 @@ namespace Steps.Tests
 
         }
 
-        class DerivedStepCache : PhasedStepCache<IPhasedStep, IEnumerable<IValidation>>, IDerivedStepCache
+        class DerivedStepCache : DefaultPhasedStepCache<IPhasedStep, IEnumerable<IValidation>>, IDerivedStepCache
         {
             public DerivedStepCache(IEnumerable<IPhasedStep> steps) : base(steps)
             {

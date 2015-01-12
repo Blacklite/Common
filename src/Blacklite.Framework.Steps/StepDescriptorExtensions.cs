@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace Blacklite.Framework.Steps
 {
-    static class StepDescriptorExtensions
+    public static class StepDescriptorExtensions
     {
-        public static IEnumerable<StepDescriptor<TReturn>> GetStepDescriptors<TStep, TReturn>(this IEnumerable<TStep> steps)
+        public static IEnumerable<IStepDescriptor<TReturn>> GetStepDescriptors<TStep, TReturn>(this IEnumerable<TStep> steps)
             where TStep : IStep
         {
             var overrideDescriptors = new List<StepDescriptor<TReturn>>();

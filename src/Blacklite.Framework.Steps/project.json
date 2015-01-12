@@ -8,6 +8,13 @@
     },
 
     "frameworks": {
+        "net45": {
+            "frameworkAssemblies": {
+                "System.Collections.Concurrent": "4.0.0.0",
+                "System.Reflection": "4.0.10.0",
+                "System.Reflection.Extensions": "4.0.0.0"
+            }
+        },
         "aspnet50": {
             "frameworkAssemblies": {
                 "System.Collections.Concurrent": "4.0.0.0",

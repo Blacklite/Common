@@ -70,7 +70,7 @@ namespace Steps.Tests
                 stepAllPhases
             };
 
-            var provider = new PhasedStepProvider<IPhasedStep, IEnumerable<IValidation>>(new PhasedStepCache<IPhasedStep, IEnumerable<IValidation>>(mockSteps));
+            var provider = new PhasedStepProvider<IPhasedStep, IEnumerable<IValidation>>(new DefaultPhasedStepCache<IPhasedStep, IEnumerable<IValidation>>(mockSteps));
 
             var steps = provider.GetStepsForPhase(StepPhases.PreInit,  It.IsAny<IStepContext>(), new object());
 
@@ -219,7 +219,7 @@ namespace Steps.Tests
                 stepAllPhases
             };
 
-            var provider = new PhasedStepProvider<IPhasedStep, IEnumerable<IValidation>>(new PhasedStepCache<IPhasedStep, IEnumerable<IValidation>>(mockSteps));
+            var provider = new PhasedStepProvider<IPhasedStep, IEnumerable<IValidation>>(new DefaultPhasedStepCache<IPhasedStep, IEnumerable<IValidation>>(mockSteps));
 
             var steps = provider.GetStepsForPhase(StepPhases.PreInit,  It.IsAny<IStepContext>(), new object()).Cast<StepDescriptor<IEnumerable<IValidation>>>().Select(x => x.Step).ToArray();
 
@@ -328,7 +328,7 @@ namespace Steps.Tests
                 validationExecuteInjectableMock.Object
             };
 
-            var provider = new PhasedStepProvider<IPhasedStep, IEnumerable<IValidation>>(new PhasedStepCache<IPhasedStep, IEnumerable<IValidation>>(mockSteps));
+            var provider = new PhasedStepProvider<IPhasedStep, IEnumerable<IValidation>>(new DefaultPhasedStepCache<IPhasedStep, IEnumerable<IValidation>>(mockSteps));
 
             var steps = provider.GetStepsForPhase(StepPhases.Init, processContext, context);
 
@@ -416,7 +416,7 @@ namespace Steps.Tests
                 validationExecuteInjectableMock.Object
             };
 
-            var provider = new PhasedStepProvider<IPhasedStep, IEnumerable<IValidation>>(new PhasedStepCache<IPhasedStep, IEnumerable<IValidation>>(mockSteps));
+            var provider = new PhasedStepProvider<IPhasedStep, IEnumerable<IValidation>>(new DefaultPhasedStepCache<IPhasedStep, IEnumerable<IValidation>>(mockSteps));
 
             var steps = provider.GetStepsForPhase(StepPhases.Init, processContext, context);
 
@@ -446,7 +446,7 @@ namespace Steps.Tests
                 new PhasedCyclicBefore1StepB(),
             };
 
-            Assert.Throws(typeof(NotSupportedException), () => new PhasedStepProvider<IPhasedStep, IEnumerable<IValidation>>(new PhasedStepCache<IPhasedStep, IEnumerable<IValidation>>(mockSteps)));
+            Assert.Throws(typeof(NotSupportedException), () => new PhasedStepProvider<IPhasedStep, IEnumerable<IValidation>>(new DefaultPhasedStepCache<IPhasedStep, IEnumerable<IValidation>>(mockSteps)));
 
             mockSteps = new IPhasedStep[]
             {
@@ -455,7 +455,7 @@ namespace Steps.Tests
                 new PhasedCyclicBefore2StepC(),
             };
 
-            Assert.Throws(typeof(NotSupportedException), () => new PhasedStepProvider<IPhasedStep, IEnumerable<IValidation>>(new PhasedStepCache<IPhasedStep, IEnumerable<IValidation>>(mockSteps)));
+            Assert.Throws(typeof(NotSupportedException), () => new PhasedStepProvider<IPhasedStep, IEnumerable<IValidation>>(new DefaultPhasedStepCache<IPhasedStep, IEnumerable<IValidation>>(mockSteps)));
 
             mockSteps = new IPhasedStep[]
             {
@@ -463,7 +463,7 @@ namespace Steps.Tests
                 new PhasedCyclicAfter1StepB(),
             };
 
-            Assert.Throws(typeof(NotSupportedException), () => new PhasedStepProvider<IPhasedStep, IEnumerable<IValidation>>(new PhasedStepCache<IPhasedStep, IEnumerable<IValidation>>(mockSteps)));
+            Assert.Throws(typeof(NotSupportedException), () => new PhasedStepProvider<IPhasedStep, IEnumerable<IValidation>>(new DefaultPhasedStepCache<IPhasedStep, IEnumerable<IValidation>>(mockSteps)));
 
             mockSteps = new IPhasedStep[]
             {
@@ -472,7 +472,7 @@ namespace Steps.Tests
                 new PhasedCyclicAfter2StepC(),
             };
 
-            Assert.Throws(typeof(NotSupportedException), () => new PhasedStepProvider<IPhasedStep, IEnumerable<IValidation>>(new PhasedStepCache<IPhasedStep, IEnumerable<IValidation>>(mockSteps)));
+            Assert.Throws(typeof(NotSupportedException), () => new PhasedStepProvider<IPhasedStep, IEnumerable<IValidation>>(new DefaultPhasedStepCache<IPhasedStep, IEnumerable<IValidation>>(mockSteps)));
 
             mockSteps = new IPhasedStep[]
             {
@@ -481,7 +481,7 @@ namespace Steps.Tests
                 new PhasedCyclicBeforeAfterStep1StepC(),
             };
 
-            Assert.Throws(typeof(NotSupportedException), () => new PhasedStepProvider<IPhasedStep, IEnumerable<IValidation>>(new PhasedStepCache<IPhasedStep, IEnumerable<IValidation>>(mockSteps)));
+            Assert.Throws(typeof(NotSupportedException), () => new PhasedStepProvider<IPhasedStep, IEnumerable<IValidation>>(new DefaultPhasedStepCache<IPhasedStep, IEnumerable<IValidation>>(mockSteps)));
         }
     }
 }

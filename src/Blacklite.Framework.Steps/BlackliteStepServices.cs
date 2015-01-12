@@ -15,10 +15,10 @@ namespace Blacklite.Framework.Steps
             var describe = new ServiceDescriber(configuration);
 
             yield return describe.Singleton(typeof(IStepProvider<,>), typeof(StepProvider<,>));
-            yield return describe.Transient(typeof(IStepCache<,>), typeof(StepCache<,>));
+            yield return describe.Transient(typeof(IStepCache<,>), typeof(DefaultStepCache<,>));
 
             yield return describe.Singleton(typeof(IPhasedStepProvider<,>), typeof(PhasedStepProvider<,>));
-            yield return describe.Transient(typeof(IPhasedStepCache<,>), typeof(PhasedStepCache<,>));
+            yield return describe.Transient(typeof(IPhasedStepCache<,>), typeof(DefaultPhasedStepCache<,>));
         }
     }
 }

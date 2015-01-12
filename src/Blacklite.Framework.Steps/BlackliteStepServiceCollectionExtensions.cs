@@ -7,7 +7,7 @@ namespace Microsoft.Framework.DependencyInjection
 {
     public static class DomainProcessServiceCollectionExtensions
     {
-        public static IServiceCollection AddDomainProcesses(
+        public static IServiceCollection AddStepServices(
             [NotNull] this IServiceCollection services,
             IConfiguration configuration = null)
         {

@@ -35,7 +35,7 @@ namespace Steps.Tests
                 stepAllPhases
             };
 
-            var provider = new StepProvider<IStep, IEnumerable<IValidation>>(new StepCache<IStep, IEnumerable<IValidation>>(mockSteps));
+            var provider = new StepProvider<IStep, IEnumerable<IValidation>>(new DefaultStepCache<IStep, IEnumerable<IValidation>>(mockSteps));
 
             var steps = provider.GetSteps(It.IsAny<IStepContext>(), new object());
 
@@ -82,7 +82,7 @@ namespace Steps.Tests
                 stepAllPhases
             };
 
-            var provider = new StepProvider<IStep, IEnumerable<IValidation>>(new StepCache<IStep, IEnumerable<IValidation>>(mockSteps));
+            var provider = new StepProvider<IStep, IEnumerable<IValidation>>(new DefaultStepCache<IStep, IEnumerable<IValidation>>(mockSteps));
 
             var steps = provider.GetSteps(It.IsAny<IStepContext>(), new object()).Cast<StepDescriptor<IEnumerable<IValidation>>>().Select(x => x.Step).ToArray();
 
@@ -156,7 +156,7 @@ namespace Steps.Tests
                 validationExecuteInjectableMock.Object
             };
 
-            var provider = new StepProvider<IStep, IEnumerable<IValidation>>(new StepCache<IStep, IEnumerable<IValidation>>(mockSteps));
+            var provider = new StepProvider<IStep, IEnumerable<IValidation>>(new DefaultStepCache<IStep, IEnumerable<IValidation>>(mockSteps));
 
             var steps = provider.GetSteps(processContext, context);
 
@@ -237,7 +237,7 @@ namespace Steps.Tests
                 validationExecuteInjectableMock.Object
             };
 
-            var provider = new StepProvider<IStep, IEnumerable<IValidation>>(new StepCache<IStep, IEnumerable<IValidation>>(mockSteps));
+            var provider = new StepProvider<IStep, IEnumerable<IValidation>>(new DefaultStepCache<IStep, IEnumerable<IValidation>>(mockSteps));
 
             var steps = provider.GetSteps(processContext, context);
 
@@ -266,7 +266,7 @@ namespace Steps.Tests
                 new CyclicBefore1StepB(),
             };
 
-            Assert.Throws(typeof(NotSupportedException), () => new StepProvider<IStep, IEnumerable<IValidation>>(new StepCache<IStep, IEnumerable<IValidation>>(mockSteps)));
+            Assert.Throws(typeof(NotSupportedException), () => new StepProvider<IStep, IEnumerable<IValidation>>(new DefaultStepCache<IStep, IEnumerable<IValidation>>(mockSteps)));
 
             mockSteps = new IStep[]
             {
@@ -275,7 +275,7 @@ namespace Steps.Tests
                 new CyclicBefore2StepC(),
             };
 
-            Assert.Throws(typeof(NotSupportedException), () => new StepProvider<IStep, IEnumerable<IValidation>>(new StepCache<IStep, IEnumerable<IValidation>>(mockSteps)));
+            Assert.Throws(typeof(NotSupportedException), () => new StepProvider<IStep, IEnumerable<IValidation>>(new DefaultStepCache<IStep, IEnumerable<IValidation>>(mockSteps)));
 
             mockSteps = new IStep[]
             {
@@ -283,7 +283,7 @@ namespace Steps.Tests
                 new CyclicAfter1StepB(),
             };
 
-            Assert.Throws(typeof(NotSupportedException), () => new StepProvider<IStep, IEnumerable<IValidation>>(new StepCache<IStep, IEnumerable<IValidation>>(mockSteps)));
+            Assert.Throws(typeof(NotSupportedException), () => new StepProvider<IStep, IEnumerable<IValidation>>(new DefaultStepCache<IStep, IEnumerable<IValidation>>(mockSteps)));
 
             mockSteps = new IStep[]
             {
@@ -292,7 +292,7 @@ namespace Steps.Tests
                 new CyclicAfter2StepC(),
             };
 
-            Assert.Throws(typeof(NotSupportedException), () => new StepProvider<IStep, IEnumerable<IValidation>>(new StepCache<IStep, IEnumerable<IValidation>>(mockSteps)));
+            Assert.Throws(typeof(NotSupportedException), () => new StepProvider<IStep, IEnumerable<IValidation>>(new DefaultStepCache<IStep, IEnumerable<IValidation>>(mockSteps)));
 
             mockSteps = new IStep[]
             {
@@ -301,7 +301,7 @@ namespace Steps.Tests
                 new CyclicBeforeAfterStep1StepC(),
             };
 
-            Assert.Throws(typeof(NotSupportedException), () => new StepProvider<IStep, IEnumerable<IValidation>>(new StepCache<IStep, IEnumerable<IValidation>>(mockSteps)));
+            Assert.Throws(typeof(NotSupportedException), () => new StepProvider<IStep, IEnumerable<IValidation>>(new DefaultStepCache<IStep, IEnumerable<IValidation>>(mockSteps)));
         }
     }
 }

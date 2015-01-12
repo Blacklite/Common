@@ -12,14 +12,18 @@ namespace Blacklite.Framework.Steps
     {
     }
 
-    public class StepCache<TStep, TReturn> : IStepCache<TStep, TReturn>
+    public abstract class StepCache<TStep, TReturn> : IStepCache<TStep, TReturn>
         where TStep : IStep
     {
-        private readonly IStepContainer<TReturn> _cache;
+        private IStepContainer<TReturn> _cache;
 
-        public StepCache(IEnumerable<TStep> steps)
+        public StepCache(IEnumerable<TStep> steps) { }
+
+        public IEnumerable<IStepDescriptor<TReturn>> BuildStepDescriptors(IEnumerable<TStep> steps) => steps.GetStepDescriptors<TStep, TReturn>();
+
+        public void ResetCache(IEnumerable<IStepDescriptor<TReturn>> descriptors)
         {
-            _cache = new StepContainer<TReturn>(steps.GetStepDescriptors<TStep, TReturn>());
+            _cache = new StepContainer<TReturn>(descriptors);
         }
 
         public IEnumerator<IStepDescriptor<TReturn>> GetEnumerator() => _cache.GetEnumerator();
@@ -29,5 +33,16 @@ namespace Blacklite.Framework.Steps
         public IEnumerable<IStepDescriptor<TReturn>> GetStepsForContextType(Type type) => _cache.GetStepsForContext(type);
 
         IEnumerator IEnumerable.GetEnumerator() => _cache.GetEnumerator();
+    }
+
+    class DefaultStepCache<TStep, TReturn> : StepCache<TStep, TReturn>
+        where TStep : IStep
+    {
+        private IStepContainer<TReturn> _cache;
+
+        public DefaultStepCache(IEnumerable<TStep> steps) : base(steps)
+        {
+            ResetCache(BuildStepDescriptors(steps));
+        }
     }
 }
