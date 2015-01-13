@@ -7,8 +7,5 @@ namespace Blacklite.Framework.Steps
         IStepContext GetContextFor<T>(T instance);
     }
 
-    public interface IStepContext
-    {
-        IServiceProvider ProcessServices { get; }
-    }
+    public interface IStepContext : IServicesContext { }
 }
