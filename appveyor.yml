@@ -23,6 +23,15 @@ build_script:
 artifacts:
   - path: artifacts\build\*.nupkg
 
+deploy:
+- provider: NuGet
+  server: https://www.myget.org/F/blacklite-vnext/
+  api_key:
+    secure: eoBrSWDtOXSxyUOoCSTyQCeDkvU18W67pE3w26viEUBRi1K4Tru0cTjUtDUB7l9V
+  skip_symbols: true
+  on:
+    branch: master
+
 #-
 #  version: "1.0.0.{build}"
 #  branches:
