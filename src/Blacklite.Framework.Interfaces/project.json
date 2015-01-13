@@ -6,16 +6,23 @@
 
     "frameworks": {
         "net45": {
+            "frameworkAssemblies": {
+                "System.ComponentModel": "4.0.0.0"
+            },
             "dependencies": {
             }
         },
         "aspnet50": {
-            "dependencies": {   
+            "frameworkAssemblies": {
+                "System.ComponentModel": "4.0.0.0"
+            },
+            "dependencies": {
             }
         },
         "aspnetcore50": {
             "dependencies": {
-                "System.Runtime": "4.0.20-beta-*"
+                "System.Runtime": "4.0.20-beta-*",
+                "System.ComponentModel": "4.0.0-beta-*"
             }
         }
     }
