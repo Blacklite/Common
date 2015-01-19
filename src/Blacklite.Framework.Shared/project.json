@@ -3,6 +3,10 @@
     "dependencies": {
         "Blacklite.Framework.Interfaces": { "version": "1.0.0-beta-*", "type": "build" }
     },
+	
+	"compilationOptions": {
+		"warningsAsErrors": true
+	},
 
     "frameworks": {
         "net45": {

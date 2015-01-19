@@ -65,8 +65,6 @@ namespace Blacklite.Framework.Steps
     class DefaultPhasedStepCache<TStep, TReturn> : PhasedStepCache<TStep, TReturn>
         where TStep : IPhasedStep
     {
-        private IStepContainer<TReturn> _cache;
-
         public DefaultPhasedStepCache(IEnumerable<TStep> steps) : base(steps)
         {
             ResetCache(BuildSortedSteps(BuildStepDescriptors(steps)));

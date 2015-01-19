@@ -1,8 +1,8 @@
 ﻿{
-    "dependencies": {
-        "xunit.runner.kre": "1.0.0-*",
-        "Blacklite.Framework.GlobalEvents": ""
-    },
+	"dependencies": {
+		"xunit.runner.kre": "1.0.0-*",
+		"Blacklite.Framework.GlobalEvents": ""
+	},
 
     "commands": {
         "test": "xunit.runner.kre"

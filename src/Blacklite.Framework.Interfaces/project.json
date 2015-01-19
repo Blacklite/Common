@@ -3,6 +3,10 @@
     "dependencies": {
         "Microsoft.Framework.Runtime.Interfaces": { "version": "1.0.0-beta3-*", "type": "build" }
     },
+	
+	"compilationOptions": {
+		"warningsAsErrors": true
+	},
 
     "frameworks": {
         "net45": {

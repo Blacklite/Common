@@ -4,6 +4,10 @@
         "Microsoft.Framework.DependencyInjection": "1.0.0-beta3-*",
         "Blacklite.Framework.Interfaces": { "version": "1.0.0-beta-*", "type": "build" }
     },
+	
+	"compilationOptions": {
+		"warningsAsErrors": true
+	},
 
     "frameworks": {
         "net45": {
