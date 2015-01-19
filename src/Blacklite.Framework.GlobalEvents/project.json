@@ -6,7 +6,7 @@
 		"Microsoft.Framework.DependencyInjection": "1.0.0-beta3-*",
 		"Microsoft.Framework.ConfigurationModel": "1.0.0-beta3-*",
 		"Microsoft.Framework.Runtime.Interfaces": "1.0.0-beta3-*",
-		"Blacklite.Framework.Interfaces": { "version": "1.0.0-beta-*", "type": "build" }
+		"Blacklite.Framework.Interfaces": "1.0.0-beta-*"
 	},
 
 	"compilationOptions": {
@@ -15,10 +15,16 @@
 
 	"frameworks": {
 		"net45": {
+			"frameworkAssemblies": {
+				"System.Runtime": "4.0.0.0"
+			},
 			"dependencies": {
 			}
 		},
 		"aspnet50": {
+			"frameworkAssemblies": {
+				"System.Runtime": "4.0.20.0"
+			},
 			"dependencies": {
 			}
 		},

@@ -4,24 +4,19 @@ using System.Reactive.Subjects;
 
 namespace Blacklite.Framework.GlobalEvents
 {
-    public interface IGlobalOrchestrator : IEventOrchestrator
+    class GlobalOrchestrator : IEventOrchestrator<IGlobalEvent>
     {
-
-    }
-
-    class GlobalOrchestrator : IGlobalOrchestrator
-    {
-        private readonly ISubject<IEvent> _subject;
+        private readonly ISubject<IGlobalEvent> _subject;
 
         public GlobalOrchestrator()
         {
-            _subject = new Subject<IEvent>();
+            _subject = new Subject<IGlobalEvent>();
             Events = _subject;
         }
 
-        public IObservable<IEvent> Events { get; }
+        public IObservable<IGlobalEvent> Events { get; }
 
-        public void Broadcast(IEvent value)
+        public void Broadcast(IGlobalEvent value)
         {
             _subject.OnNext(value);
         }

@@ -13,8 +13,8 @@ namespace Blacklite.Framework.GlobalEvents
         {
             var describe = new ServiceDescriber(configuration);
 
-            yield return describe.Singleton<IGlobalObservable, GlobalObservable>();
-            yield return describe.Singleton<IGlobalOrchestrator, GlobalOrchestrator>();
+            yield return describe.Singleton<IEventObservable<IGlobalEvent>, GlobalObservable>();
+            yield return describe.Singleton<IEventOrchestrator<IGlobalEvent>, GlobalOrchestrator>();
         }
     }
 }

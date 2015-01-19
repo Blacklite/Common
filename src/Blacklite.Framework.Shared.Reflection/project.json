@@ -2,7 +2,7 @@
     "version": "1.0.0-*",
     "dependencies": {
         "Microsoft.Framework.DependencyInjection": "1.0.0-beta3-*",
-        "Blacklite.Framework.Interfaces": { "version": "1.0.0-beta-*", "type": "build" }
+        "Blacklite.Framework.Interfaces":"1.0.0-beta-*"
     },
 	
 	"compilationOptions": {
@@ -11,7 +11,8 @@
 
     "frameworks": {
         "net45": {
-            "frameworkAssemblies": {
+			"frameworkAssemblies": {
+				"System.Runtime": "4.0.0.0",
                 "System.Collections": "4.0.0.0",
                 "System.Linq": "4.0.0.0",
                 "System.Reflection": "4.0.0.0",
@@ -22,7 +23,8 @@
             }
         },
         "aspnet50": {
-            "frameworkAssemblies": {
+			"frameworkAssemblies": {
+				"System.Runtime": "4.0.20.0",
                 "System.Collections": "4.0.10.0",
                 "System.Linq": "4.0.0.0",
                 "System.Reflection": "4.0.10.0",

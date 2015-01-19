@@ -1,29 +1,35 @@
 ﻿{
-    "version": "1.0.0-*",
-    "dependencies": {
-        "Blacklite.Framework.Interfaces": { "version": "1.0.0-beta-*", "type": "build" }
-    },
-	
+	"version": "1.0.0-*",
+	"dependencies": {
+		"Blacklite.Framework.Interfaces": "1.0.0-beta-*"
+	},
+
 	"compilationOptions": {
 		"warningsAsErrors": true
 	},
 
-    "frameworks": {
-        "net45": {
-            "dependencies": {
-            }
-        },
-        "aspnet50": {
-            "dependencies": {
-            }
-        },
-        "aspnetcore50": {
-            "dependencies": {
-                "System.Runtime": "4.0.20-beta-*",
-                "System.Collections": "4.0.10-beta-*",
-                "System.Linq": "4.0.0-beta-*",
-                "System.Reflection": "4.0.10-beta-*"
-            }
-        }
-    }
+	"frameworks": {
+		"net45": {
+			"frameworkAssemblies": {
+				"System.Runtime": "4.0.0.0"
+			},
+			"dependencies": {
+			}
+		},
+		"aspnet50": {
+			"frameworkAssemblies": {
+				"System.Runtime": "4.0.20.0"
+			},
+			"dependencies": {
+			}
+		},
+		"aspnetcore50": {
+			"dependencies": {
+				"System.Runtime": "4.0.20-beta-*",
+				"System.Collections": "4.0.10-beta-*",
+				"System.Linq": "4.0.0-beta-*",
+				"System.Reflection": "4.0.10-beta-*"
+			}
+		}
+	}
 }

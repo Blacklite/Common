@@ -1,7 +1,7 @@
 ﻿{
     "version": "1.0.0-*",
     "dependencies": {
-        "Microsoft.Framework.Runtime.Interfaces": { "version": "1.0.0-beta3-*", "type": "build" }
+        "Microsoft.Framework.Runtime.Interfaces": "1.0.0-beta3-*"
     },
 	
 	"compilationOptions": {
@@ -10,14 +10,16 @@
 
     "frameworks": {
         "net45": {
-            "frameworkAssemblies": {
+			"frameworkAssemblies": {
+				"System.Runtime": "4.0.0.0",
                 "System.ComponentModel": "4.0.0.0"
             },
             "dependencies": {
             }
         },
         "aspnet50": {
-            "frameworkAssemblies": {
+			"frameworkAssemblies": {
+				"System.Runtime": "4.0.20.0",
                 "System.ComponentModel": "4.0.0.0"
             },
             "dependencies": {
