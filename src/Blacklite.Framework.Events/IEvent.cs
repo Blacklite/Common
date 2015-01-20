@@ -9,6 +9,6 @@ namespace Blacklite.Framework.Events
         string Name { get; }
         string User { get; }
         string Reason { get; }
-        IDictionary<string, string> Data { get; }
+        IReadOnlyDictionary<string, string> Data { get; }
     }
 }

@@ -18,7 +18,7 @@ namespace Blacklite.Framework.GlobalEvents
 
         public string User { get; set; }
 
-        public IDictionary<string, string> Data { get; set; }
+        public IReadOnlyDictionary<string, string> Data { get; set; } = new Dictionary<string, string>();
 
         public static GlobalEvent Create(IEvent evt)
         {
@@ -27,7 +27,7 @@ namespace Blacklite.Framework.GlobalEvents
             globalEvent.Name = evt.Name;
             globalEvent.Reason = evt.Reason;
             globalEvent.User = evt.User;
-            globalEvent.Data = evt.Data.ToDictionary(x => x.Key, x => x.Value);
+            globalEvent.Data = evt.Data?.ToDictionary(x => x.Key, x => x.Value) ?? new Dictionary<string, string>();
 
             return globalEvent;
         }

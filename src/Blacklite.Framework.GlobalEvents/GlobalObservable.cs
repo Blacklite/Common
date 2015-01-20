@@ -12,7 +12,7 @@ namespace Blacklite.Framework.GlobalEvents
         private readonly IObservable<IGlobalEvent> _observable;
         public GlobalObservable([NotNull] IEnumerable<IGlobalEventSource> sources)
         {
-            _observable = sources.Select(x => x.Events).Merge().Select(GlobalEvent.Create);
+            _observable = sources.Merge().Select(GlobalEvent.Create);
         }
 
         public IDisposable Subscribe(IObserver<IGlobalEvent> observer)

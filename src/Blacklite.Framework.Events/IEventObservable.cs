@@ -2,5 +2,5 @@
 
 namespace Blacklite.Framework.Events
 {
-    public interface IEventObservable<T> : IObservable<T> where T : IEvent { }
+    public interface IEventObservable<out T> : IObservable<T> where T : IEvent { }
 }
