@@ -1,4 +1,5 @@
-﻿using Microsoft.Framework.ConfigurationModel;
+﻿using Blacklite.Framework.Events;
+using Microsoft.Framework.ConfigurationModel;
 using Microsoft.Framework.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,6 @@ namespace Blacklite.Framework.GlobalEvents
             var describe = new ServiceDescriber(configuration);
 
             yield return describe.Singleton<IEventObservable<IGlobalEvent>, GlobalObservable>();
-            yield return describe.Singleton<IEventOrchestrator<IGlobalEvent>, GlobalOrchestrator>();
         }
     }
 }

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Blacklite.Framework.Events;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 
 namespace Blacklite.Framework.GlobalEvents
@@ -15,5 +17,19 @@ namespace Blacklite.Framework.GlobalEvents
         public string Reason { get; set; }
 
         public string User { get; set; }
+
+        public IDictionary<string, string> Data { get; set; }
+
+        public static GlobalEvent Create(IEvent evt)
+        {
+            var globalEvent = new GlobalEvent();
+            globalEvent.Type = evt.Type;
+            globalEvent.Name = evt.Name;
+            globalEvent.Reason = evt.Reason;
+            globalEvent.User = evt.User;
+            globalEvent.Data = evt.Data.ToDictionary(x => x.Key, x => x.Value);
+
+            return globalEvent;
+        }
     }
 }

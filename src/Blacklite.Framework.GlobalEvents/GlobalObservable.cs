@@ -1,13 +1,18 @@
 ﻿using System;
+using Blacklite.Framework.Events;
+using System.Reactive;
+using System.Reactive.Linq;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Blacklite.Framework.GlobalEvents
 {
     class GlobalObservable : IEventObservable<IGlobalEvent>
     {
         private readonly IObservable<IGlobalEvent> _observable;
-        public GlobalObservable([NotNull] IEventOrchestrator<IGlobalEvent> orchestrator)
+        public GlobalObservable([NotNull] IEnumerable<IGlobalEventSource> sources)
         {
-            _observable = orchestrator.Events;
+            _observable = sources.Select(x => x.Events).Merge().Select(GlobalEvent.Create);
         }
 
         public IDisposable Subscribe(IObserver<IGlobalEvent> observer)
