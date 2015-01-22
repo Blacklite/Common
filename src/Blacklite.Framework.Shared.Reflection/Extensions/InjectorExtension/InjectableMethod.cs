@@ -125,13 +125,13 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
 
         private TReturn GetResult<TReturn>(object container, object[] parameters, TReturn returnDefault, TypeInfo returnTypeInfo)
         {
-            if (_voidReturnType || !_methodReturnTypeInfo.IsAssignableFrom(returnTypeInfo))
+            if (!_voidReturnType || returnTypeInfo.IsInterface && _methodReturnTypeInfo.ImplementedInterfaces.Contains(returnTypeInfo.AsType()) || _methodReturnTypeInfo.IsAssignableFrom(returnTypeInfo))
             {
-                _methodInfo.Invoke(container, parameters);
-                return returnDefault;
+                return (TReturn)_methodInfo.Invoke(container, parameters);
             }
 
-            return (TReturn)_methodInfo.Invoke(container, parameters);
+            _methodInfo.Invoke(container, parameters);
+            return returnDefault;
         }
 
         private void ExecuteResult(object container, object[] parameters)

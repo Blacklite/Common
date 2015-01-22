@@ -97,7 +97,7 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
 
         internal void ValidateReturnType()
         {
-            if (!_returnTypes.Any(z => z == _methodInfo.ReturnType))
+            if (!_returnTypes.Any(z => z.GetTypeInfo().IsAssignableFrom(_methodInfo.ReturnType.GetTypeInfo())))
             {
                 throw new InvalidOperationException("Method must return at least one of the declared return types.");
             }
