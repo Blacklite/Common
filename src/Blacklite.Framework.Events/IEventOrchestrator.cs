@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Blacklite.Framework
+namespace Blacklite.Framework.Events
 {
     public interface IEventOrchestrator<T> where T : IEvent
     {
