@@ -20,8 +20,8 @@ IF EXIST packages\KoreBuild goto run
 .nuget\NuGet.exe install Sake -version 0.2 -o packages -ExcludeVersion
 
 IF "%SKIP_KRE_INSTALL%"=="1" goto run
-CALL packages\KoreBuild\build\dotnetsdk upgrade -amd64
-CALL packages\KoreBuild\build\dotnetsdk install default -runtime CoreCLR -amd64
+CALL packages\KoreBuild\build\dotnetsdk upgrade -x64
+CALL packages\KoreBuild\build\dotnetsdk install default -runtime CoreCLR -x64
 CALL packages\KoreBuild\build\dotnetsdk install default -x86
 CALL packages\KoreBuild\build\dotnetsdk install default -runtime CoreCLR -x86
 
