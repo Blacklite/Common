@@ -1,7 +1,8 @@
 ﻿{
 	"version": "1.0.0-*",
 	"dependencies": {
-		"Blacklite.Framework.Interfaces": "1.0.0-beta-*"
+        "Blacklite.Framework.Interfaces": "1.0.0-beta-*",
+        "Microsoft.Framework.DependencyInjection": "1.0.0-beta4-*"
 	},
 
 	"compilationOptions": {
