@@ -4,9 +4,13 @@
         "Microsoft.Framework.Runtime.Interfaces": "1.0.0-beta3"
     },
 
-    "compilationOptions": {
-        "warningsAsErrors": true
+   "devDependencies": {
+        "NR6Pack": "0.5.0.0"
     },
+
+	"compilationOptions": {
+		"warningsAsErrors": true
+	},
 
     "frameworks": {
         "net45": {

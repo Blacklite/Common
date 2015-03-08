@@ -6,7 +6,11 @@
         "Blacklite.Framework.Shared.Reflection": "1.0.0-beta-*",
         "Blacklite.Framework.Interfaces": "1.0.0-beta-*"
     },
-	
+
+   "devDependencies": {
+        "NR6Pack": "0.5.0.0"
+    },
+
 	"compilationOptions": {
 		"warningsAsErrors": true
 	},
