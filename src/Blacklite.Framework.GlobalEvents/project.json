@@ -3,9 +3,9 @@
 	"dependencies": {
 		"Rx-Core": "2.2.5.0",
 		"Rx-Linq": "2.2.5.0",
-		"Microsoft.Framework.DependencyInjection": "1.0.0-beta4-*",
-		"Microsoft.Framework.ConfigurationModel": "1.0.0-beta4-*",
-		"Microsoft.Framework.Runtime.Interfaces": "1.0.0-beta4-*",
+		"Microsoft.Framework.DependencyInjection": "1.0.0-beta3",
+		"Microsoft.Framework.ConfigurationModel": "1.0.0-beta3",
+		"Microsoft.Framework.Runtime.Interfaces": "1.0.0-beta3",
 		"Blacklite.Framework.Events": "1.0.0-beta-*",
 		"Blacklite.Framework.Interfaces": "1.0.0-beta-*"
 	},
@@ -24,7 +24,7 @@
 		},
 		"aspnet50": {
 			"frameworkAssemblies": {
-				"System.Runtime": "4.0.20.0"
+				"System.Runtime": "4.0.10.0"
 			},
 			"dependencies": {
 			}
