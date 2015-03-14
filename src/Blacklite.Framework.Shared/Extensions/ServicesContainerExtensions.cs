@@ -19,6 +19,11 @@ namespace Microsoft.Framework.DependencyInjection
                 collection.Add(descriptor);
                 return true;
             }
+            if (!collection.Any(d => d.ImplementationInstance == descriptor.ImplementationInstance))
+            {
+                collection.Add(descriptor);
+                return true;
+            }
             return false;
         }
 

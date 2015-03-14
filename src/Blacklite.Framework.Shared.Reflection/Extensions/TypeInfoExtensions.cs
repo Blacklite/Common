@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace System.Reflection
 {
@@ -16,6 +17,18 @@ namespace System.Reflection
             }
 
             return null;
+        }
+
+        public static IEnumerable<PropertyInfo> GetDeclaredProperties(this TypeInfo typeInfo)
+        {
+            while (typeInfo != null)
+            {
+                var properties = typeInfo.DeclaredProperties;
+                foreach (var property in properties)
+                    yield return property;
+
+                typeInfo = typeInfo?.BaseType?.GetTypeInfo();
+            }
         }
     }
 }
