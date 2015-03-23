@@ -2,9 +2,9 @@
     "version": "1.0.0-*",
     "dependencies": {
         "Microsoft.Framework.DependencyInjection": "1.0.0-beta3",
-        "Blacklite.Framework.Shared": "1.0.0-beta-*",
-        "Blacklite.Framework.Shared.Reflection": "1.0.0-beta-*",
-        "Blacklite.Framework.Interfaces": "1.0.0-beta-*"
+        "Blacklite.Framework.Shared": "1.0.0-*",
+        "Blacklite.Framework.Shared.Reflection": "1.0.0-*",
+        "Blacklite.Framework.Interfaces": "1.0.0-*"
     },
 
    "devDependencies": {
@@ -36,12 +36,12 @@
         },
         "aspnetcore50": {
             "dependencies": {
-                "System.Runtime": "4.0.20-beta-*",
-                "System.ComponentModel": "4.0.0-beta-*",
-                "System.Reflection.Extensions": "4.0.0-beta-*",
-                "System.Reflection.TypeExtensions": "4.0.0-beta-*",
-                "System.Collections.Concurrent": "4.0.0-beta-*",
-                "System.ObjectModel": "4.0.10-beta-*"
+                "System.Runtime": "4.0.20-*",
+                "System.ComponentModel": "4.0.0-*",
+                "System.Reflection.Extensions": "4.0.0-*",
+                "System.Reflection.TypeExtensions": "4.0.0-*",
+                "System.Collections.Concurrent": "4.0.0-*",
+                "System.ObjectModel": "4.0.10-*"
             }
         }
     }
