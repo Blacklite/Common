@@ -46,8 +46,6 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Shared.Reflection.Tests", "
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Steps.Tests", "test\Steps.Tests\Steps.Tests.kproj", "{61663198-261E-4B36-B74E-189249C7CAA4}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Blacklite.Framework.Shared.Dnx", "src\Blacklite.Framework.Shared.Dnx\Blacklite.Framework.Shared.Dnx.kproj", "{0D1A4D95-3DDC-4CD2-9BA5-068851504179}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -90,10 +88,6 @@ Global
 		{61663198-261E-4B36-B74E-189249C7CAA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61663198-261E-4B36-B74E-189249C7CAA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61663198-261E-4B36-B74E-189249C7CAA4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0D1A4D95-3DDC-4CD2-9BA5-068851504179}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0D1A4D95-3DDC-4CD2-9BA5-068851504179}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0D1A4D95-3DDC-4CD2-9BA5-068851504179}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0D1A4D95-3DDC-4CD2-9BA5-068851504179}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -108,6 +102,5 @@ Global
 		{54168E3D-A5F1-4FB4-9A62-D2C22F3AD4B0} = {C65C7423-CD10-4116-A3BA-859D2E008E91}
 		{37FF8865-1A51-480B-8B34-1ABA8A9DC4BB} = {C65C7423-CD10-4116-A3BA-859D2E008E91}
 		{61663198-261E-4B36-B74E-189249C7CAA4} = {C65C7423-CD10-4116-A3BA-859D2E008E91}
-		{0D1A4D95-3DDC-4CD2-9BA5-068851504179} = {A039DEB7-AE7E-4D1E-A36A-887E70F61260}
 	EndGlobalSection
 EndGlobal
