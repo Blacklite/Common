@@ -1,8 +1,9 @@
 ﻿{
-	"version": "1.0.0-*",
-	"dependencies": {
-        "Blacklite.Framework.Interfaces": "1.0.0-*"
-	},
+    "version": "1.0.0-*",
+    "dependencies": {
+        "Blacklite.Framework.Interfaces":"1.0.0-*",
+        "Microsoft.Framework.DependencyInjection": "1.0.0-beta3"
+    },
 
    "devDependencies": {
         "NR6Pack": "0.5.0.0"
@@ -12,7 +13,7 @@
 		"warningsAsErrors": true
 	},
 
-	"frameworks": {
+    "frameworks" : {
 		"net45": {
 			"frameworkAssemblies": {
 				"System.Runtime": "4.0.0.0"
@@ -35,5 +36,5 @@
 				"System.Reflection": "4.0.10-*"
 			}
 		}
-	}
+    }
 }
