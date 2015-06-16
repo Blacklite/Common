@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Framework.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -82,8 +83,11 @@ namespace Blacklite.Framework.Shared.Reflection.Extensions.InjectorExtension
                 }
                 else
                 {
-                    var service = parameters[parameterInfo.Position] = serviceProvider.GetService(parameterInfo.ParameterType);
-                    if (service == null)
+                    try
+                    {
+                        parameters[parameterInfo.Position] = serviceProvider.GetRequiredService(parameterInfo.ParameterType);
+                    }
+                    catch (Exception)
                     {
                         throw new InvalidOperationException(string.Format(
                             "Unable to resolve required service for {0} method {1} {2}",

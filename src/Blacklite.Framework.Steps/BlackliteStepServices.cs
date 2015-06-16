@@ -1,24 +1,20 @@
-﻿using Blacklite.Framework.Steps;
-using Microsoft.Framework.ConfigurationModel;
 using Microsoft.Framework.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 
 namespace Blacklite.Framework.Steps
 {
     public static class BlackliteStepServices
     {
-        public static IEnumerable<IServiceDescriptor> GetDefaultServices(IConfiguration configuration = null)
+        public static IServiceCollection GetDefaultServices()
         {
-            var describe = new ServiceDescriber(configuration);
+            var services = new ServiceCollection();
 
-            yield return describe.Singleton(typeof(IStepProvider<,>), typeof(StepProvider<,>));
-            yield return describe.Transient(typeof(IStepCache<,>), typeof(DefaultStepCache<,>));
+            services.AddSingleton(typeof(IStepProvider<,>), typeof(StepProvider<,>));
+            services.AddTransient(typeof(IStepCache<,>), typeof(DefaultStepCache<,>));
 
-            yield return describe.Singleton(typeof(IPhasedStepProvider<,>), typeof(PhasedStepProvider<,>));
-            yield return describe.Transient(typeof(IPhasedStepCache<,>), typeof(DefaultPhasedStepCache<,>));
+            services.AddSingleton(typeof(IPhasedStepProvider<,>), typeof(PhasedStepProvider<,>));
+            services.AddTransient(typeof(IPhasedStepCache<,>), typeof(DefaultPhasedStepCache<,>));
+
+            return services;
         }
     }
 }

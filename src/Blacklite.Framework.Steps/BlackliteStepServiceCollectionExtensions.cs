@@ -1,22 +1,18 @@
-﻿using Blacklite.Framework;
+using Blacklite.Framework;
 using Blacklite.Framework.Steps;
-using Microsoft.Framework.ConfigurationModel;
-using System;
 
 namespace Microsoft.Framework.DependencyInjection
 {
     public static class DomainProcessServiceCollectionExtensions
     {
-        public static IServiceCollection AddStepServices(
-            [NotNull] this IServiceCollection services,
-            IConfiguration configuration = null)
+        public static IServiceCollection AddStepServices([NotNull] this IServiceCollection services)
         {
-            ConfigureDefaultServices(services, configuration);
-            services.TryAdd(BlackliteStepServices.GetDefaultServices(configuration));
+            ConfigureDefaultServices(services);
+            services.TryAdd(BlackliteStepServices.GetDefaultServices());
             return services;
         }
 
-        private static void ConfigureDefaultServices(IServiceCollection services, IConfiguration configuration)
+        private static void ConfigureDefaultServices(IServiceCollection services)
         {
         }
     }

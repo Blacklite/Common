@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.22609.0
+VisualStudioVersion = 14.0.22823.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{BC0A1D44-C65A-4B9F-A902-2195AC58EDA5}"
 	ProjectSection(SolutionItems) = preProject
@@ -28,23 +28,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A039DEB7-AE7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{C65C7423-CD10-4116-A3BA-859D2E008E91}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Blacklite.Framework.Interfaces", "src\Blacklite.Framework.Interfaces\Blacklite.Framework.Interfaces.kproj", "{B31A377D-1905-4438-A02B-CD4EEAD8DCC7}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Blacklite.Framework.Shared", "src\Blacklite.Framework.Shared\Blacklite.Framework.Shared.xproj", "{7D364B90-7F31-4B54-B00D-2B5518610917}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Blacklite.Framework.Shared", "src\Blacklite.Framework.Shared\Blacklite.Framework.Shared.kproj", "{7D364B90-7F31-4B54-B00D-2B5518610917}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Blacklite.Framework.Shared.Reflection", "src\Blacklite.Framework.Shared.Reflection\Blacklite.Framework.Shared.Reflection.xproj", "{54B81C20-E88D-48E6-A74B-D30AE280056F}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Blacklite.Framework.Shared.Reflection", "src\Blacklite.Framework.Shared.Reflection\Blacklite.Framework.Shared.Reflection.kproj", "{54B81C20-E88D-48E6-A74B-D30AE280056F}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Blacklite.Framework.Events", "src\Blacklite.Framework.Events\Blacklite.Framework.Events.xproj", "{161CF813-CA55-49ED-B0A5-CB1A7F1CC43D}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Blacklite.Framework.Events", "src\Blacklite.Framework.Events\Blacklite.Framework.Events.kproj", "{161CF813-CA55-49ED-B0A5-CB1A7F1CC43D}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Blacklite.Framework.GlobalEvents", "src\Blacklite.Framework.GlobalEvents\Blacklite.Framework.GlobalEvents.xproj", "{51375ADC-59E4-4108-8CDD-1BC2638F7760}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Blacklite.Framework.GlobalEvents", "src\Blacklite.Framework.GlobalEvents\Blacklite.Framework.GlobalEvents.kproj", "{51375ADC-59E4-4108-8CDD-1BC2638F7760}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Blacklite.Framework.Steps", "src\Blacklite.Framework.Steps\Blacklite.Framework.Steps.xproj", "{572B4BAA-8CD9-4F0B-A4D3-29A42D80BAAD}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Blacklite.Framework.Steps", "src\Blacklite.Framework.Steps\Blacklite.Framework.Steps.kproj", "{572B4BAA-8CD9-4F0B-A4D3-29A42D80BAAD}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "GlobalEvents.Tests", "test\GlobalEvents.Tests\GlobalEvents.Tests.xproj", "{54168E3D-A5F1-4FB4-9A62-D2C22F3AD4B0}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "GlobalEvents.Tests", "test\GlobalEvents.Tests\GlobalEvents.Tests.kproj", "{54168E3D-A5F1-4FB4-9A62-D2C22F3AD4B0}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Shared.Reflection.Tests", "test\Shared.Reflection.Tests\Shared.Reflection.Tests.xproj", "{37FF8865-1A51-480B-8B34-1ABA8A9DC4BB}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Shared.Reflection.Tests", "test\Shared.Reflection.Tests\Shared.Reflection.Tests.kproj", "{37FF8865-1A51-480B-8B34-1ABA8A9DC4BB}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Steps.Tests", "test\Steps.Tests\Steps.Tests.xproj", "{61663198-261E-4B36-B74E-189249C7CAA4}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Steps.Tests", "test\Steps.Tests\Steps.Tests.kproj", "{61663198-261E-4B36-B74E-189249C7CAA4}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Blacklite.Framework.Abstractions", "src\Blacklite.Framework.Abstractions\Blacklite.Framework.Abstractions.xproj", "{B31A377D-1905-4438-A02B-CD4EEAD8DCC7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,10 +52,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B31A377D-1905-4438-A02B-CD4EEAD8DCC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B31A377D-1905-4438-A02B-CD4EEAD8DCC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B31A377D-1905-4438-A02B-CD4EEAD8DCC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B31A377D-1905-4438-A02B-CD4EEAD8DCC7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7D364B90-7F31-4B54-B00D-2B5518610917}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7D364B90-7F31-4B54-B00D-2B5518610917}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D364B90-7F31-4B54-B00D-2B5518610917}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -88,12 +84,15 @@ Global
 		{61663198-261E-4B36-B74E-189249C7CAA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61663198-261E-4B36-B74E-189249C7CAA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61663198-261E-4B36-B74E-189249C7CAA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B31A377D-1905-4438-A02B-CD4EEAD8DCC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B31A377D-1905-4438-A02B-CD4EEAD8DCC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B31A377D-1905-4438-A02B-CD4EEAD8DCC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B31A377D-1905-4438-A02B-CD4EEAD8DCC7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{B31A377D-1905-4438-A02B-CD4EEAD8DCC7} = {A039DEB7-AE7E-4D1E-A36A-887E70F61260}
 		{7D364B90-7F31-4B54-B00D-2B5518610917} = {A039DEB7-AE7E-4D1E-A36A-887E70F61260}
 		{54B81C20-E88D-48E6-A74B-D30AE280056F} = {A039DEB7-AE7E-4D1E-A36A-887E70F61260}
 		{161CF813-CA55-49ED-B0A5-CB1A7F1CC43D} = {A039DEB7-AE7E-4D1E-A36A-887E70F61260}
@@ -102,5 +101,6 @@ Global
 		{54168E3D-A5F1-4FB4-9A62-D2C22F3AD4B0} = {C65C7423-CD10-4116-A3BA-859D2E008E91}
 		{37FF8865-1A51-480B-8B34-1ABA8A9DC4BB} = {C65C7423-CD10-4116-A3BA-859D2E008E91}
 		{61663198-261E-4B36-B74E-189249C7CAA4} = {C65C7423-CD10-4116-A3BA-859D2E008E91}
+		{B31A377D-1905-4438-A02B-CD4EEAD8DCC7} = {A039DEB7-AE7E-4D1E-A36A-887E70F61260}
 	EndGlobalSection
 EndGlobal

@@ -7,11 +7,9 @@ namespace Microsoft.Framework.DependencyInjection
 {
     public static class GlobalEventsServiceCollectionExtensions
     {
-        public static IServiceCollection AddGlobalEvents(
-            [NotNull] this IServiceCollection services,
-            IConfiguration configuration = null)
+        public static IServiceCollection AddGlobalEvents([NotNull] this IServiceCollection services)
         {
-            services.TryAdd(GlobalEventsServices.GetDefaultServices(configuration));
+            services.TryAdd(GlobalEventsServices.GetDefaultServices());
             return services;
         }
 

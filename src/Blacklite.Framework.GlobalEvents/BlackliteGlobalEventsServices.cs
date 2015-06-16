@@ -10,11 +10,13 @@ namespace Blacklite.Framework.GlobalEvents
 {
     public static class GlobalEventsServices
     {
-        public static IEnumerable<IServiceDescriptor> GetDefaultServices(IConfiguration configuration = null)
+        public static IServiceCollection GetDefaultServices()
         {
-            var describe = new ServiceDescriber(configuration);
+            var services = new ServiceCollection();
 
-            yield return describe.Singleton<IEventObservable<IGlobalEvent>, GlobalObservable>();
+            services.AddSingleton<IEventObservable<IGlobalEvent>, GlobalObservable>();
+
+            return services;
         }
     }
 }
