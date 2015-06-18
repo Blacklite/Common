@@ -1,10 +1,5 @@
 ﻿using Blacklite.Framework.Events;
-using Microsoft.Framework.ConfigurationModel;
 using Microsoft.Framework.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 
 namespace Blacklite.Framework.GlobalEvents
 {

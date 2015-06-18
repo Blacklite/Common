@@ -8,7 +8,7 @@ namespace Blacklite.Framework.GlobalEvents
 {
     public interface IGlobalEvent : IEvent { }
 
-    class GlobalEvent : IGlobalEvent
+    public class GlobalEvent : IGlobalEvent
     {
         public string Type { get; set; }
 

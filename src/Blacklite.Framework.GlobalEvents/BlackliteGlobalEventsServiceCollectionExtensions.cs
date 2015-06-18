@@ -1,7 +1,5 @@
 ﻿using Blacklite.Framework;
 using Blacklite.Framework.GlobalEvents;
-using Microsoft.Framework.ConfigurationModel;
-using System;
 
 namespace Microsoft.Framework.DependencyInjection
 {
