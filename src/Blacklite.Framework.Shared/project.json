@@ -1,5 +1,6 @@
 ﻿{
     "version": "1.0.0-*",
+    "authors": ["David Driscoll"],
     "dependencies": {
         "Blacklite.Framework.Abstractions": "1.0.0-*",
         "Microsoft.Framework.DependencyInjection": "1.0.0-beta5-*"

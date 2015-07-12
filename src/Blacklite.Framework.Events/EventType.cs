@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 
 namespace Blacklite.Framework.Events
 {
-    public enum EventType
+    public class EventType
     {
-        ResetCache,
-        ResetMetadata,
+        public static string ResetCache = nameof(ResetCache);
+        public static string ResetMetadata = nameof(ResetMetadata);
     }
 }
