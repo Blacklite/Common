@@ -20,15 +20,16 @@ $configuration="Debug"
 $ENV:DNX_BUILD_VERSION="alpha"
 
 if ($ENV:APPVEYOR) {
+    $paddedBuildNumber = $ENV:APPVEYOR_BUILD_NUMBER.PadLeft(5, '0');
     IF ($ENV:APPVEYOR_REPO_TAG -eq "false" -or $ENV:APPVEYOR_REPO_TAG -eq "False") {
         if ($ENV:APPVEYOR_REPO_BRANCH -eq "master") {
-            $ENV:DNX_BUILD_VERSION="ci-$ENV:APPVEYOR_BUILD_NUMBER";
+            $ENV:DNX_BUILD_VERSION="beta-$paddedBuildNumber";
         } else {
-            $ENV:DNX_BUILD_VERSION="branch-$ENV:APPVEYOR_REPO_BRANCH-$ENV:APPVEYOR_BUILD_NUMBER";
+            $ENV:DNX_BUILD_VERSION="beta-branch-$ENV:APPVEYOR_REPO_BRANCH-$paddedBuildNumber";
         }
     }
     IF ($ENV:APPVEYOR_REPO_TAG -eq "true" -or $ENV:APPVEYOR_REPO_TAG -eq "True") {
-        $ENV:DNX_BUILD_VERSION=$ENV:APPVEYOR_BUILD_NUMBER;
+        $ENV:DNX_BUILD_VERSION=$paddedBuildNumber;
     }
 }
 
