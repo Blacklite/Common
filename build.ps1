@@ -38,20 +38,34 @@ dnu restore
 
 if ($lastexitcode -gt 0) { exit $lastexitcode }
 
+$buildFailed = $false;
+foreach ($srcFolder in Get-ChildItem src\* -Directory) {
+    dnu build $srcFolder.FullName
+    if ($lastexitcode -gt 0) { $buildFailed = $lastexitcode; }
+}
+
+if ($buildFailed) {
+    exit 1;
+}
+
 $testsFailed = $false;
 foreach ($testFolder in Get-ChildItem test\* -Directory) {
-    pushd $testFolder.FullName
-    dnx . test
+    dnx $testFolder.FullName test
     if ($lastexitcode -gt 0) { $testsFailed = $lastexitcode; }
-    popd
 }
 
 if ($testsFailed) {
     exit 1;
 }
 
+$packFailed = $false;
 foreach ($srcFolder in Get-ChildItem src\* -Directory) {
     dnu pack $srcFolder.FullName --out artifacts\build --configuration $configuration
+    if ($lastexitcode -gt 0) { $packFailed = $lastexitcode; }
+}
+
+if ($packFailed) {
+    exit 1;
 }
 
 foreach ($item in Get-ChildItem artifacts\build\$configuration\*.nupkg -Exclude *.symbols.nupkg) {
