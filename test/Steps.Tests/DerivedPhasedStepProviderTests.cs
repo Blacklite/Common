@@ -1,4 +1,4 @@
-﻿using Blacklite.Framework.Steps;
+using Blacklite.Framework.Steps;
 using Moq;
 using Steps.Tests.Fixtures;
 using System;
