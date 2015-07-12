@@ -18,7 +18,7 @@ build_script:
   - echo %APPVEYOR_REPO_TAG%
   - echo %APPVEYOR_REPO_BRANCH%
   - echo %K_BUILD_VERSION%
-  - ps: build.ps1
+  - ps: .\build.ps1
 
 artifacts:
   - path: artifacts\build\*.nupkg
