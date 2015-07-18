@@ -1,19 +1,14 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace Blacklite.Framework.Events
 {
-    public class Event
+    public class Event : IEvent
     {
         public Event(IDictionary<string, object> data = null)
         {
             Data = new ReadOnlyDictionary<string, object>(data ?? new Dictionary<string, object>());
-        }
-
-        public Event(IReadOnlyDictionary<string, object> data = null)
-        {
-            Data = data;
         }
 
         protected T _getValue<T>(string key)
@@ -27,38 +22,8 @@ namespace Blacklite.Framework.Events
             return default(T);
         }
 
-        public string Type
-        {
-            get
-            {
-                return _getValue<string>(nameof(Type));
-            }
-        }
-
-        public string Name
-        {
-            get
-            {
-                return _getValue<string>(nameof(Name));
-            }
-        }
-
-        public string User
-        {
-            get
-            {
-                return _getValue<string>(nameof(User));
-            }
-        }
-
-        public string Reason
-        {
-            get
-            {
-                return _getValue<string>(nameof(Reason));
-            }
-        }
-
+        public string Category { get { return _getValue<string>(nameof(Category)); } }
+        public string Type { get { return _getValue<string>(nameof(Type)); } }
         public IReadOnlyDictionary<string, object> Data { get; }
     }
 }
